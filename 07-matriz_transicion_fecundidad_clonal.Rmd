@@ -1,0 +1,14 @@
+# Matrices de transicion, fecundidad y clonal 
+
+## Por:??
+
+## Métodos tradicional de calcular las transiciones
+
+
+
+## Problema con el uso tradicional
+
+
+
+
+## Referencias
