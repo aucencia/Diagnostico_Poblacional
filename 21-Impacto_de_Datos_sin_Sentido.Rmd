@@ -1,7 +1,36 @@
-# Impactos de datos sin sentido sobre los analisis
-
+# Impactos de datos sin sentido sobre los analisis de dinamica poblacional
 
 Por: RLT
+
+El valor de los estudios cientificos es que los datos representa una visión suficiente cerca a la realidad. El objetivo es tener una apreciación de los parametros más importante para definir un cierto patrón o interacciones. Por concequencia la base de todo estudios is based on the fundamewntal units of data collection.  If the data do not represent the reality of the study then the interperettion of the analysis is likely to be erroneous. Fancy mathematics and analyses will NOT result in better or more realistic interpretation if the data is erroneous.  
+
+In this section we will consider different aspects of population projection matrix analises and different aspects of the data collection or analysis which are problematic. For each of the problematic situation I will show an example and how it impacts the results of the analyses.  These "Impacts" are not meant to be inclusive of all possible results of non-sensical data, but an example of not considering these issues may warp the intepretations.   
+
+## Small sample size or rare events
+
+
+### No Mortality
+
+
+### No Transitions
+
+### No survivorship
+
+### Perfect survivorship
+
+
+## Fertility estimates and life cycle
+
+### Correct life cycle and fertility stage
+
+## Data Analysis issues
+
+### Incorrect confidence intervals estimates
+
+  - Confidence intervals of transtion, stasis survivorship based on normal distribution
+  
+  - Dirichlet approach for estimating confidence intervals
+  
 
 
 
