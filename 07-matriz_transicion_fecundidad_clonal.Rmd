@@ -1,6 +1,6 @@
 # Matrices de transicion, fecundidad y clonal 
 
-## Por:??
+## Por: Raymond 
 
 ## Métodos tradicional de calcular las transiciones
 

@@ -1,10 +1,14 @@
 # Crecimiento Poblacional
 
-Por: ???
+Por: Tamara
 
 ## Introducción al crecimiento poblacional
 
 Ahora el primer paso es explicar a que .....
+
+  - Crecimiento intrínseco
+	- Estimado de intervalos de confianza de lambda
+
 
 
 ## Métodos

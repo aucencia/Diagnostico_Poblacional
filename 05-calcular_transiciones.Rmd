@@ -1,6 +1,6 @@
 # Como calcular transiciones para la matriz de Lefkovitch
 
-## Por: Ernesto Mujica y Elaine Gonzalez
+## Por: Ernesto Mujica y Elaine Gonzalez y Aucencia
 
 ## Métodos tradicional de calcular las transiciones
 
