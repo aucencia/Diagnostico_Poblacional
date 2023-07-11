@@ -1,11 +1,11 @@
 ---
 title: "Dinamica_Poblacional"
-#output: 
-#  html_document: 
-#    theme: spacelab
-#    toc: yes
-#    toc_float: yes
-#    code_folding: hide
+output: 
+  html_document: 
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+    code_folding: hide
 author: ""
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
