@@ -6,10 +6,13 @@ El valor de los estudios cientificos es que los datos representa una visión suf
 
 In this section we will consider different aspects of population projection matrix analises and different aspects of the data collection or analysis which are problematic. For each of the problematic situation I will show an example and how it impacts the results and analyses.  These "Impacts" are not meant to be inclusive of all possible results of non-sensical data, but an example of not considering these issues and how it may warp the intepretations.  Thus a warning to all population biologist to be weary of these issues.  
 
+***
+
 ## Small sample size or rare events
 
 Without a doubt the main topic (although exclusive) for the use of PPM has been to evaluate population projection of rare or endangered species (ref). Consequently, sample size of the study or some of the life stages/ages are reduced. These reduced sample size cause parameter estimates and often non-sensical results.  
 
+***
 
 ### No Mortality/Perfect survivorship
 
@@ -54,7 +57,7 @@ pop.projection(Sp1matU, n=n)$pop.changes
 
 #### Assume a small change in mortality
 
-Note that in this new model although surviviroship is very close to zero, population decline in every time period (even if only by a small fraction). 
+Note that in this new model although surviviroship is very close to zero (0.995), and consequently population decline in every time period (even if only by a small fraction) is possible. 
 
 ```{r}
 Sp1matU_2 <- rbind(
@@ -75,9 +78,9 @@ pop.projection(Sp1matU_2, n=n)$pop.changes
 
 ```
 
+***
 
-
-### No Transitions between stages
+### Irreducibility: No Transitions between stages
 
 In the present scenario, juveniles do not grow to become adults, all juveniles either remain juveniles or die. Note the life cycle figure where no arrows connect juveniles to adults.   
 
@@ -118,14 +121,117 @@ isIrreducible(Sp1matA_2) # includes all transitions and fertility
 ```
 
 
+***
+
 ### No survivorship
 
-### Complete mortality of one or more stages
+Complete mortality of one or more stages. It is often observed that survivorship of smaller individuals or the first stage of the life cycle of a species is highly risky, where the likelihood of survbivorship is very low. For example, most seeds do not survive to germinate. This is likely the norm in orchids where seed production is very high (sometimes millions seeds in one seed capsule, i.e *Catasetum*; ref), but few are shown to germinate (ref). However this is not limited to orchids, in trees the same pattern may be observed, for example in *Nothofagus pumilio* seedling recruitment was less than 1.5% @torres2015seed. NEED EXAMPLE OF NO SEED OR SEEDLING RECRUITMENTS.   
 
+As it is well known that seed germination in orchids is less than straightforward and many variables may influence seed germination @rasmussen2015germination. .......
+
+In the present life cycle graph, none of the seedling survive or growth to the next stage.  Note the first column in the transition matrix all values are zero.  The population may have started with many (even thousands) of seedling, but none grew to become a juvenile or remained as seedlings.  This results in a matrix that is reducible *isIrreducible* = *FALSE* and consequently does not comply with the requirements needed.  
+
+```{r}
+library(DiagrammeR)
+
+Sp1matU_NS <- rbind(
+  c(0.0, 0.0, 0.0),
+  c(0.0, 0.7, 0.0),
+  c(0.0, 0.25, 0.995)
+) # transition matrix
+
+Sp1matF <- rbind(
+  c(0.0, 0.0, 1.0),
+  c(0.0, 0.0, 0.0),
+  c(0.0, 0.0, 0.0)
+) # fertility matrix
+
+Sp1matA_NS = Sp1matU_NS+Sp1matF # TF matrix
+library(Rage)
+stages <- c("plantula", "juvenil", "adulto")
+
+plot_life_cycle(Sp1matU_NS, stages=stages, fontsize = 0)
+
+isIrreducible(Sp1matU_NS)
+```
+
+
+
+***
 
 ## Fertility estimates and life cycle
 
-### Correct life cycle and fertility stage
+The importance of considering how fertility included in the life cycle is extremely important, and  if erroneously considered may result in results and interpretation that are non-sensicle.  We would show a few example of how these can be included in the life cycle and matrix and result in cause problems.
+
+
+### Incorrect life cycle and fertility stage
+
+Assume you have a species where you model the life cycle as seedling, juvenile and adult.  Fertility is measured as the number of seeds produced by an adult (mean number of seeds per adult).   After collecting the data calculations it is determined that the mean number of seeds per adult is 11000.  If we add this the transition and fertility matrix belowand evaluate the lambda and graph the population growth with the function *project* we have a lambda of 4.93 and after only 5 time periods the number of adults are above 250,000.  Consequently the population growth rate estimeste would be incorrect and misleading. 
+
+The error is that the value in the fertility matrix should correspond to the first stage of the matrix, in this case the seedling stage.  Thus the top right corner of the fertility matrix should not be the mean number of seeds per plant, but the mean number of seedlings produced by a an adult plant.   
+
+```{r}
+library(DiagrammeR)
+
+Sp1matU_Fert <- rbind(
+  c(0.0, 0.0, 0.0),
+  c(0.3, 0.7, 0.0),
+  c(0.0, 0.25, 0.995)
+) # transition matrix
+
+Sp1matF <- rbind(
+  c(0.0, 0.0, 1100.0),
+  c(0.0, 0.0, 0.0),
+  c(0.0, 0.0, 0.0)
+) # fertility matrix
+
+Sp1matA_Fert = Sp1matU_Fert+Sp1matF # TF matrix
+library(Rage)
+stages <- c("plantula", "juvenil", "adulto")
+
+lambda(Sp1matA_Fert)
+
+# show change in population size
+n
+pr <- project(Sp1matA_Fert, vector="n", time=5)
+plot(pr) # Note that even after just 5 time periods, the number of adults is larger than 250,000 individuals
+```
+
+If we wish to add a seed stage than we have to include the stage in our model and matrix with a new stage *the seed stage*.
+
+```{r}
+library(DiagrammeR)
+
+Sp1matU_Fert2 <- rbind(
+  c(0.0, 0.0, 0.0, 0.0),
+  c(0.0001, 0.0, 0.0, 0.0),
+  c(0.0, 0.3, 0.7, 0.0),
+  c(0.0, 0.0, 0.25, 0.995)
+) # transition matrix
+
+Sp1matF2 <- rbind(
+  c(0.0, 0.0, 0.0, 1100.0),
+  c(0.0, 0.0, 0.0, 0.0),
+  c(0.0, 0.0, 0.0, 0.0),
+  c(0.0, 0.0, 0.0, 0.0)
+) # fertility matrix
+
+Sp1matA_Fert2 = Sp1matU_Fert2+Sp1matF2 # TF matrix
+library(Rage)
+stages <- c("semillas", "plantula", "juvenil", "adulto")
+
+plot_life_cycle(Sp1matA_Fert2, stages=stages)
+
+lambda(Sp1matA_Fert2)
+
+# show change in population size
+pr <- project(Sp1matA_Fert2, vector="n", time=5)
+plot(pr) # Note that now the number of adults did not increase to the level of the previous model
+```
+
+
+***
+
 
 ## Data Analysis issues
 
