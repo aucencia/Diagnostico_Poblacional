@@ -61,7 +61,15 @@ Sp1matU_2 <- rbind(
   c(0.0, 0.0, 0.0),
   c(0.5, 0.3, 0.0),
   c(0.0, 0.4, 0.995)
-) # transition matrix\
+) # transition matrix
+
+Sp1matF <- rbind(
+  c(0.0, 0.0, 1.0),
+  c(0.0, 0.0, 0.0),
+  c(0.0, 0.0, 0.0)
+) # fertility matrix
+
+Sp1matA_2=Sp1matU_2+Sp1matF
 
 pop.projection(Sp1matU_2, n=n)$pop.changes
 
@@ -76,7 +84,7 @@ In the present scenario, juveniles do not grow to become adults, all juveniles e
 ```{r}
 library(DiagrammeR)
 
-Sp1matU <- rbind(
+Sp1matU_NT <- rbind(
   c(0.0, 0.0, 0.0),
   c(0.5, 0.7, 0.0),
   c(0.0, 0.0, 0.995)
@@ -88,13 +96,26 @@ Sp1matF <- rbind(
   c(0.0, 0.0, 0.0)
 ) # fertility matrix
 
-Sp1matA = Sp1matU+Sp1matF # TF matrix
+Sp1matA_NT = Sp1matU_NT+Sp1matF # TF matrix
 library(Rage)
 stages <- c("plantula", "juvenil", "adulto")
 
-plot_life_cycle(Sp1matU, stages=stages, fontsize = 0)
+plot_life_cycle(Sp1matU_NT, stages=stages, fontsize = 0)
 ```
 
+
+As shown by @caswell2000matrix and more recently explored by @stott2010reducibility matrices need to be *irreducible*.  The concept of *irreducibility* is associated with the life cycle of the species and the matrix includes the transitions from all stages to all other stages.    The above life cycle figure is missing two important components in the life history of the species, no juveniles grow to become adults and none of the adults produce seedlings (seeds that grow to seedlings).  
+
+An easy way of determining if the matrix is irreducible is to read the follwowing script *isIrreducible* in the package (popdemo). Note that is this case the result is *False* for the above matrix. 
+
+```{r}
+isIrreducible(Sp1matU_NT) # for the transiiton matrix, missing a transition stage and fertility
+isIrreducible(Sp1matA_NT) # for the TF matrix, missing a transition stage
+
+# Now considering Sp1matA_2
+
+isIrreducible(Sp1matA_2) # includes all transitions and fertility
+```
 
 
 ### No survivorship
