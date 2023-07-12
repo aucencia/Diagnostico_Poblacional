@@ -252,13 +252,120 @@ We surveyed 25 individuals were 20 survived
  Where the proportion that died is $\hat{p}$ and the number that died is $n_d$ and $n$ is the sample size
  
  
- $$\hat{p}=\frac{n_d}{n}$$
+ $$\hat{p}=\frac{n_d}{n}$$ with a probability of death of 20%. 
  
  
 
 ```{r}
 p=5/25
 p
+```
+
+
+The 95% CI of a proportion is calculated 
+
+$$ \hat{p}\pm Z_{0.05}*\sqrt{}(\frac{\hat{p}(1-\hat{p})}{n})$$
+- Z_{0.05} is the Z critical value for a 95% CI = 1.955
+
+```{r}
+n=25
+HCI=p+1.96*sqrt((p*(1-p))/n) #High CI
+HCI
+
+LCI=p-1.96*sqrt((p*(1-p))/n) #Low CI
+LCI
+```
+
+An easier method is using the R function *propCI* form the **library(interceptCI)**
+
+
+ 
+
+```{r}
+library(interpretCI)
+
+result=propCI(n=25, p=0.2, alpha=0.05)
+
+result
+```
+
+However how do calculate the 95% CI when there are more than 2 proportions? Because the proportion of all stages dependent on the proportion of the other stages, analisis have to consider the proportion and the 95% CI have to include all stages simultaneously. The function required is the multinomial (multi group) dirichlet function.  
+
+In the analysis we estimate the 95% confidence intervals of the transition and stasis of seedlings to seedlings (50%), juveniles (20%), adults (0%) and death (30%). Note the life cycle graph which by as usual excludes the probabilty of seedlings dying. 
+
+```{r}
+
+Dirichlet <- rbind(
+  c(0.5, 0.0, 0.0),
+  c(0.2, 0.0, 0.0),
+  c(0.0, 0.3, 0.7)
+) # transition matrix
+
+library(Rage)
+stages <- c("plantula", "juvenil", "adulto")
+
+plot_life_cycle(Dirichlet, stages=stages)
+```
+
+
+To evaluate the 95% CI interval simultaneously of the four transitions we use the **library(MCMCpack)**, which is a package dedicated to performaing Markov Chain Monte Carlo simulations.  We will use the function *MCmultinomdirichlet*.  Note that the first list are the proportion as shown in the matrix for the seedling stage c(.50*b,.2*b,.0*b,.3*b) multiplied by the sample size b= 25. The second list are the Bayesian priors c(.5,.2,0.0001,.3), in this case I assumed that the sum of the priors are equal to 1. This results in a very low confidence in the prior perception of what the transiiton are. The second assumption is the priors for the transtion observed are equal, however we could have used c(1,1,0,.0001, 1), where this prior suggest an equal transition for all but seedlings growing to becoming an adult.    
+
+The concept of the prior cannot be explained throurougly here, see the following references for more in depth information. 
+
+The results in the figure show that there is lots of dispersion around the mean proportion of the statis and transition as expected because of the small sample size.  To convince yourself change the value of **b** to a large number and see how the distibution changes
+
+
+```{r}
+
+library(MCMCpack)
+b=25
+L=posteriorPRIORL <- MCmultinomdirichlet(c(.50*b,.2*b,.0*b,.3*b), c(.5,.2,0.0001,.3), mc=10000)
+dfL=as.data.frame(L)
+t(summary(dfL))
+
+#head(dfL)
+stack_dfL=stack(dfL)
+comb_dfbL= cbind(stack_dfL, T="25")
+
+All_Data3=comb_dfbL
+levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.1"]="Seedling"
+levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.2"]="Juvenil"
+levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.3"]="Adult"
+levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.4"]="Dead"
+
+library(ggplot2)
+ggplot(data=All_Data3, aes(x=values, fill=ind, colour=ind))+
+  geom_density(aes(adjust=6, alpha=.5)) +
+  scale_y_continuous(limit=c(0, 5.5))+
+  scale_colour_hue(l=60)+
+  facet_grid(~ind)
+
+
+
+```
+
+NOw let us calculate the 95% CI of the transitions
+
+```{r}
+
+library(plyr)
+library(reshape2)
+
+MEANS=ddply(All_Data3, c("ind"), summarise,
+            mean = round(mean(values),3), sd = round(sd(values),4),
+            #sem = round(sd(values)/sqrt(length(values)),6),
+            CI5 = quantile(values, probs = c(0.05)),
+            CI95 = round(quantile(values, probs = c(0.95)), 4)
+            )
+
+MEANS
+
+
+#Extract only the mean value for the transient analysis
+formatrix=ddply(All_Data3, c("ind", "T"), summarise,
+                mean = round(mean(values),5))
+#remove the dead probilities = not needed, it is calculated 
+fx=formatrix[formatrix$ind !="Dead",]
 ```
 
 
