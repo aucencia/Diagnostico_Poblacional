@@ -156,6 +156,9 @@ isIrreducible(Sp1matU_NS)
 ```
 
 
+## Excessive rounding of values
+
+
 
 ***
 
@@ -197,7 +200,7 @@ pr <- project(Sp1matA_Fert, vector="n", time=5)
 plot(pr) # Note that even after just 5 time periods, the number of adults is larger than 250,000 individuals
 ```
 
-If we wish to add a seed stage than we have to include the stage in our model and matrix with a new stage *the seed stage*.
+If we wish to add a seed stage than we have to include the stage in our model and matrix with a new stage *the seed stage*, and have an estimate of the number of seeds that germinate and become seddlings.  In the case of orchids, this likely to be a difficult estimate to attain because orchids seeds are difficult to follow in nature unless either the seed packet method developped by.   or some genetic fingerprinting method was used to determine the provenance of the seeds.  
 
 ```{r}
 library(DiagrammeR)
@@ -229,6 +232,7 @@ pr <- project(Sp1matA_Fert2, vector="n", time=5)
 plot(pr) # Note that now the number of adults did not increase to the level of the previous model
 ```
 
+In the above example we have not included a seed dormancy stage.  In many plant species, seeds can be dormant for one or more years.  It is not known if seeds in orchids are dormant for a long time @gale2010constraints except for a few species which have shown that seeds are still alive after mutliple years in the soil using tetrazolium stain test @rasmussen1993seed and @whigham2006seed. 
 
 ***
 
@@ -237,7 +241,28 @@ plot(pr) # Note that now the number of adults did not increase to the level of t
 
 ### Incorrect confidence intervals estimates
 
-  - Confidence intervals of transtion, stasis survivorship based on normal distribution
+Estimates of dispersion in the survival, transition, death and fertility are matrix parameter are useful in multiple ways. The most basic approach is understanding the uncertainty in the parameter as a function of the sample size, parameters with large dispersion should be viewed with caution. The disperison parameters maybe useful for simulations and understanding the uncertainty in the population parameters such as lambda and the probability of persistence and extinction.   
+
+The parameter of survival, death, stasis and transitions are NOT normally distributed as the values range from zero to 1.  No value can be smaller than zero or larger than one, including the 95% confidence intervals (bounded by 0 and 1). If the gaussian (normal) distribution it is likely that the 95% CI will be outof bound. Let us assume we wish to calculate the probability of survivorship of one stage and its 95% confidence intervals.
+
+We surveyed 25 individuals were 20 survived
+
+ - Construct a 95% confidence interval of the proportion of individuals that died
+ 
+ Where the proportion that died is $\hat{p}$ and the number that died is $n_d$ and $n$ is the sample size
+ 
+ 
+ $$\hat{p}=\frac{n_d}{n}$$
+ 
+ 
+
+```{r}
+p=5/25
+p
+```
+
+
+  - Confidence intervals of transtion, stasis and survivorship based on normal distribution
   
   - Dirichlet approach for estimating confidence intervals
   
