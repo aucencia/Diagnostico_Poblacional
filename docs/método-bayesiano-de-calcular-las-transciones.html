@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-07-11" />
+<meta name="date" content="2023-07-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -343,10 +343,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="21.1" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#small-sample-size-or-rare-events"><i class="fa fa-check"></i><b>21.1</b> Small sample size or rare events</a>
 <ul>
-<li class="chapter" data-level="21.1.1" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-mortality"><i class="fa fa-check"></i><b>21.1.1</b> No Mortality</a></li>
+<li class="chapter" data-level="21.1.1" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-mortalityperfect-survivorship"><i class="fa fa-check"></i><b>21.1.1</b> No Mortality/Perfect survivorship</a></li>
 <li class="chapter" data-level="21.1.2" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-transitions"><i class="fa fa-check"></i><b>21.1.2</b> No Transitions</a></li>
 <li class="chapter" data-level="21.1.3" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-survivorship"><i class="fa fa-check"></i><b>21.1.3</b> No survivorship</a></li>
-<li class="chapter" data-level="21.1.4" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#perfect-survivorship"><i class="fa fa-check"></i><b>21.1.4</b> Perfect survivorship</a></li>
+<li class="chapter" data-level="21.1.4" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#complete-mortality-of-one-or-more-stages"><i class="fa fa-check"></i><b>21.1.4</b> Complete mortality of one or more stages</a></li>
 </ul></li>
 <li class="chapter" data-level="21.2" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#fertility-estimates-and-life-cycle"><i class="fa fa-check"></i><b>21.2</b> Fertility estimates and life cycle</a>
 <ul>
@@ -459,8 +459,8 @@ div.csl-indent {
 <span id="cb7-10"><a href="método-bayesiano-de-calcular-las-transciones.html#cb7-10" tabindex="-1"></a>stages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;semillas&quot;</span>, <span class="st">&quot;plantulas&quot;</span>, <span class="st">&quot;adultos&quot;</span>)</span>
 <span id="cb7-11"><a href="método-bayesiano-de-calcular-las-transciones.html#cb7-11" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="método-bayesiano-de-calcular-las-transciones.html#cb8-1" tabindex="-1"></a><span class="fu">plot_life_cycle</span>(matA, <span class="at">stages=</span>stages)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9948b1fdb9f551c41db9" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9948b1fdb9f551c41db9">{"x":{"diagram":"\ndigraph {\n  {\n    graph[overlap=false];\n    rank=same;\n    node [shape= egg , fontsize= 12 ]; \"semillas\"; \"plantulas\"; \"adultos\" \n  } ordering=out\n  x [style=invis]\n  x -> { \"semillas\"; \"plantulas\"; \"adultos\" } [style=invis] \"semillas\" -> \"plantulas\"[minlen=3,fontsize=10,color=grey,xlabel=\" 1\"]\n\"adultos\" -> \"adultos\"[minlen=0,fontsize=10,color=grey,xlabel=\" 0.9\"]\n labelloc=\"t\";\n  label=\"  \"\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e2047489003dd7b11424" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e2047489003dd7b11424">{"x":{"diagram":"\ndigraph {\n  {\n    graph[overlap=false];\n    rank=same;\n    node [shape= egg , fontsize= 12 ]; \"semillas\"; \"plantulas\"; \"adultos\" \n  } ordering=out\n  x [style=invis]\n  x -> { \"semillas\"; \"plantulas\"; \"adultos\" } [style=invis] \"semillas\" -> \"plantulas\"[minlen=3,fontsize=10,color=grey,xlabel=\" 1\"]\n\"adultos\" -> \"adultos\"[minlen=0,fontsize=10,color=grey,xlabel=\" 0.9\"]\n labelloc=\"t\";\n  label=\"  \"\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <div id="el-paquete-raretrans" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> El paquete “raretrans”<a href="método-bayesiano-de-calcular-las-transciones.html#el-paquete-raretrans" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La información original del uso del paquete se encuentra aqui <a href="https://doi.org/10.1016/j.ecolmodel.2021.109526" class="uri">https://doi.org/10.1016/j.ecolmodel.2021.109526</a>.</p>
@@ -913,10 +913,10 @@ los intervalos creíbles simétricos se reducen bastante:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="método-bayesiano-de-calcular-las-transciones.html#cb50-1" tabindex="-1"></a><span class="fu">sim_transitions</span>(TF, N, <span class="at">P =</span> RLT_Tprior, <span class="at">alpha =</span> alpha, <span class="at">beta =</span> beta,</span>
 <span id="cb50-2"><a href="método-bayesiano-de-calcular-las-transciones.html#cb50-2" tabindex="-1"></a>                <span class="at">priorweight =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [[1]]
-##             [,1]       [,2]         [,3]
-## [1,] 0.066509643 0.01517581 0.2964939161
-## [2,] 0.646621631 0.55992301 0.0004067694
-## [3,] 0.003076193 0.29044615 0.9355959476</code></pre>
+##            [,1]        [,2]         [,3]
+## [1,] 0.11101292 0.004613639 0.5510698954
+## [2,] 0.28658098 0.690323026 0.0007323189
+## [3,] 0.06154153 0.236287434 0.9040828694</code></pre>
 <p>Ahora simulamos 5000 veces, calculamos el valor <span class="math inline">\(\lambda\)</span> de cada
 matriz y creamos un histograma de la distribución.</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="método-bayesiano-de-calcular-las-transciones.html#cb52-1" tabindex="-1"></a><span class="co">#set.seed(8390278) # make this part reproducible</span></span>
