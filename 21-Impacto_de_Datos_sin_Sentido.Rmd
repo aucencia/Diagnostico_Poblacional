@@ -4,19 +4,60 @@ Por: RLT
 
 El valor de los estudios cientificos es que los datos representa una visión suficiente cerca a la realidad. El objetivo es tener una apreciación de los parametros más importante para definir un cierto patrón o interacciones. Por concequencia la base de todo estudios is based on the fundamewntal units of data collection.  If the data do not represent the reality of the study then the interperettion of the analysis is likely to be erroneous. Fancy mathematics and analyses will NOT result in better or more realistic interpretation if the data is erroneous.  
 
-In this section we will consider different aspects of population projection matrix analises and different aspects of the data collection or analysis which are problematic. For each of the problematic situation I will show an example and how it impacts the results of the analyses.  These "Impacts" are not meant to be inclusive of all possible results of non-sensical data, but an example of not considering these issues may warp the intepretations.   
+In this section we will consider different aspects of population projection matrix analises and different aspects of the data collection or analysis which are problematic. For each of the problematic situation I will show an example and how it impacts the results and analyses.  These "Impacts" are not meant to be inclusive of all possible results of non-sensical data, but an example of not considering these issues and how it may warp the intepretations.  Thus a warning to all population biologist to be weary of these issues.  
 
 ## Small sample size or rare events
 
+Without a doubt the main topic (although exclusive) for the use of PPM has been to evaluate population projection of rare or endangered species (ref). Consequently, sample size of the study or some of the life stages/ages are reduced. These reduced sample size cause parameter estimates and often non-sensical results.  
 
-### No Mortality
+
+### No Mortality/Perfect survivorship
+
+Consider a species were data is collected and the transition matrix (Sp1matU) is as follows and fertility matriz is (Sp1matF). Note that none of the individuals died in the adult stage (perfect survivorship).  
+
+```{r}
+library(DiagrammeR)
+
+Sp1matU <- rbind(
+  c(0.0, 0.0, 0.0),
+  c(0.5, 0.3, 0.0),
+  c(0.0, 0.4, 1.0)
+) # transition matrix
+
+Sp1matF <- rbind(
+  c(0.0, 0.0, 1.0),
+  c(0.0, 0.0, 0.0),
+  c(0.0, 0.0, 0.0)
+) # fertility matrix
+
+Sp1matA = Sp1matU+Sp1matF # TF matrix
+library(Rage)
+stages <- c("plantula", "juvenil", "adulto")
+
+plot_life_cycle(Sp1matU, stages=stages, fontsize = 0)
+```
+
+
+Thus if we analize this matrix we assume that none of the individuals in the adult stage die, at any time period!!!. Clearly this is not realistic, for any species the likelyhood of death at any stage is never zero (although is could very small) and thus our matrix is non-sensicle. Consider a tree species, such a *Sequoia*, it is the likely for large trees of this species it is likely to that survivorship is very high, however never zero.   
+
+In the following script we chow that population changes after 5 -6 periods reminds close to one and does not change eventhough we have not recruits (we use the transition matrix without fertility).  If there are no recrtuis (fertility matrix) population size should reduce with time.  
+
+```{r}
+n=c(5,5,5)
+
+library(popdemo)
+library(popbio)
+truelambda(Sp1matU)
+pop.projection(Sp1matU, n=n)$pop.changes
+```
+
 
 
 ### No Transitions
 
 ### No survivorship
 
-### Perfect survivorship
+### Complete mortality of one or more stages
 
 
 ## Fertility estimates and life cycle

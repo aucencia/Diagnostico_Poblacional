@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-07-11" />
+<meta name="date" content="2023-07-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -343,10 +343,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="21.1" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#small-sample-size-or-rare-events"><i class="fa fa-check"></i><b>21.1</b> Small sample size or rare events</a>
 <ul>
-<li class="chapter" data-level="21.1.1" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-mortality"><i class="fa fa-check"></i><b>21.1.1</b> No Mortality</a></li>
+<li class="chapter" data-level="21.1.1" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-mortalityperfect-survivorship"><i class="fa fa-check"></i><b>21.1.1</b> No Mortality/Perfect survivorship</a></li>
 <li class="chapter" data-level="21.1.2" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-transitions"><i class="fa fa-check"></i><b>21.1.2</b> No Transitions</a></li>
 <li class="chapter" data-level="21.1.3" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-survivorship"><i class="fa fa-check"></i><b>21.1.3</b> No survivorship</a></li>
-<li class="chapter" data-level="21.1.4" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#perfect-survivorship"><i class="fa fa-check"></i><b>21.1.4</b> Perfect survivorship</a></li>
+<li class="chapter" data-level="21.1.4" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#complete-mortality-of-one-or-more-stages"><i class="fa fa-check"></i><b>21.1.4</b> Complete mortality of one or more stages</a></li>
 </ul></li>
 <li class="chapter" data-level="21.2" data-path="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#fertility-estimates-and-life-cycle"><i class="fa fa-check"></i><b>21.2</b> Fertility estimates and life cycle</a>
 <ul>
@@ -426,11 +426,49 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 21</span> Impactos de datos sin sentido sobre los analisis de dinamica poblacional<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Por: RLT</p>
 <p>El valor de los estudios cientificos es que los datos representa una visión suficiente cerca a la realidad. El objetivo es tener una apreciación de los parametros más importante para definir un cierto patrón o interacciones. Por concequencia la base de todo estudios is based on the fundamewntal units of data collection. If the data do not represent the reality of the study then the interperettion of the analysis is likely to be erroneous. Fancy mathematics and analyses will NOT result in better or more realistic interpretation if the data is erroneous.</p>
-<p>In this section we will consider different aspects of population projection matrix analises and different aspects of the data collection or analysis which are problematic. For each of the problematic situation I will show an example and how it impacts the results of the analyses. These “Impacts” are not meant to be inclusive of all possible results of non-sensical data, but an example of not considering these issues may warp the intepretations.</p>
+<p>In this section we will consider different aspects of population projection matrix analises and different aspects of the data collection or analysis which are problematic. For each of the problematic situation I will show an example and how it impacts the results and analyses. These “Impacts” are not meant to be inclusive of all possible results of non-sensical data, but an example of not considering these issues and how it may warp the intepretations. Thus a warning to all population biologist to be weary of these issues.</p>
 <div id="small-sample-size-or-rare-events" class="section level2 hasAnchor" number="21.1">
 <h2><span class="header-section-number">21.1</span> Small sample size or rare events<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#small-sample-size-or-rare-events" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="no-mortality" class="section level3 hasAnchor" number="21.1.1">
-<h3><span class="header-section-number">21.1.1</span> No Mortality<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Without a doubt the main topic (although exclusive) for the use of PPM has been to evaluate population projection of rare or endangered species (ref). Consequently, sample size of the study or some of the life stages/ages are reduced. These reduced sample size cause parameter estimates and often non-sensical results.</p>
+<div id="no-mortalityperfect-survivorship" class="section level3 hasAnchor" number="21.1.1">
+<h3><span class="header-section-number">21.1.1</span> No Mortality/Perfect survivorship<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-mortalityperfect-survivorship" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider a species were data is collected and the transition matrix (Sp1matU) is as follows and fertility matriz is (Sp1matF). Note that none of the individuals died in the adult stage (perfect survivorship).</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-1" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb117-2"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-2" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-3" tabindex="-1"></a>Sp1matU <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb117-4"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-4" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb117-5"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-5" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.0</span>),</span>
+<span id="cb117-6"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-6" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.4</span>, <span class="fl">1.0</span>)</span>
+<span id="cb117-7"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-7" tabindex="-1"></a>) <span class="co"># transition matrix</span></span>
+<span id="cb117-8"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-8" tabindex="-1"></a></span>
+<span id="cb117-9"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-9" tabindex="-1"></a>Sp1matF <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb117-10"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-10" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>),</span>
+<span id="cb117-11"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-11" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb117-12"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-12" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>)</span>
+<span id="cb117-13"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-13" tabindex="-1"></a>) <span class="co"># fertility matrix</span></span>
+<span id="cb117-14"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-14" tabindex="-1"></a></span>
+<span id="cb117-15"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-15" tabindex="-1"></a>Sp1matA <span class="ot">=</span> Sp1matU<span class="sc">+</span>Sp1matF <span class="co"># TF matrix</span></span>
+<span id="cb117-16"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-16" tabindex="-1"></a><span class="fu">library</span>(Rage)</span>
+<span id="cb117-17"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-17" tabindex="-1"></a>stages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;plantula&quot;</span>, <span class="st">&quot;juvenil&quot;</span>, <span class="st">&quot;adulto&quot;</span>)</span>
+<span id="cb117-18"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-18" tabindex="-1"></a></span>
+<span id="cb117-19"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb117-19" tabindex="-1"></a><span class="fu">plot_life_cycle</span>(Sp1matU, <span class="at">stages=</span>stages, <span class="at">fontsize =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c43357f71d2cc3a312db" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-c43357f71d2cc3a312db">{"x":{"diagram":"\ndigraph {\n  {\n    graph[overlap=false];\n    rank=same;\n    node [shape= egg , fontsize= 12 ]; \"plantula\"; \"juvenil\"; \"adulto\" \n  } ordering=out\n  x [style=invis]\n  x -> { \"plantula\"; \"juvenil\"; \"adulto\" } [style=invis] \"plantula\" -> \"juvenil\"[minlen=3,fontsize=0,color=grey,xlabel=\" 0.5\"]\n\"juvenil\" -> \"juvenil\"[minlen=0,fontsize=0,color=grey,xlabel=\" 0.3\"]\n\"juvenil\" -> \"adulto\"[minlen=3,fontsize=0,color=grey,xlabel=\" 0.4\"]\n\"adulto\" -> \"adulto\"[minlen=0,fontsize=0,color=grey,xlabel=\" 1\"]\n labelloc=\"t\";\n  label=\"  \"\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Thus if we analize this matrix we assume that none of the individuals in the adult stage die, at any time period!!!. Clearly this is not realistic, for any species the likelyhood of death at any stage is never zero (although is could very small) and thus our matrix is non-sensicle. Consider a tree species, such a <em>Sequoia</em>, it is the likely for large trees of this species it is likely to that survivorship is very high, however never zero.</p>
+<p>In the following script we chow that population changes after 5 -6 periods reminds close to one and does not change eventhough we have not recruits (we use the transition matrix without fertility). If there are no recrtuis (fertility matrix) population size should reduce with time.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb118-1" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb118-2"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb118-2" tabindex="-1"></a></span>
+<span id="cb118-3"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb118-3" tabindex="-1"></a><span class="fu">library</span>(popdemo)</span>
+<span id="cb118-4"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb118-4" tabindex="-1"></a><span class="fu">library</span>(popbio)</span>
+<span id="cb118-5"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb118-5" tabindex="-1"></a><span class="fu">truelambda</span>(Sp1matU)</span></code></pre></div>
+<pre><code>##           [,1] [,2]
+## [1,] 0.9999999    1
+## [2,] 0.9999999    1
+## [3,] 0.9999999    1</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#cb120-1" tabindex="-1"></a><span class="fu">pop.projection</span>(Sp1matU, <span class="at">n=</span>n)<span class="sc">$</span>pop.changes</span></code></pre></div>
+<pre><code>##  [1] 0.7333333 0.8909091 0.9632653 0.9885593 0.9965281 0.9989548 0.9996861
+##  [8] 0.9999058 0.9999717 0.9999915 0.9999975 0.9999992 0.9999998 0.9999999
+## [15] 1.0000000 1.0000000 1.0000000 1.0000000 1.0000000</code></pre>
 </div>
 <div id="no-transitions" class="section level3 hasAnchor" number="21.1.2">
 <h3><span class="header-section-number">21.1.2</span> No Transitions<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-transitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -438,8 +476,8 @@ div.csl-indent {
 <div id="no-survivorship" class="section level3 hasAnchor" number="21.1.3">
 <h3><span class="header-section-number">21.1.3</span> No survivorship<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#no-survivorship" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="perfect-survivorship" class="section level3 hasAnchor" number="21.1.4">
-<h3><span class="header-section-number">21.1.4</span> Perfect survivorship<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#perfect-survivorship" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="complete-mortality-of-one-or-more-stages" class="section level3 hasAnchor" number="21.1.4">
+<h3><span class="header-section-number">21.1.4</span> Complete mortality of one or more stages<a href="impactos-de-datos-sin-sentido-sobre-los-analisis-de-dinamica-poblacional.html#complete-mortality-of-one-or-more-stages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
 <div id="fertility-estimates-and-life-cycle" class="section level2 hasAnchor" number="21.2">
