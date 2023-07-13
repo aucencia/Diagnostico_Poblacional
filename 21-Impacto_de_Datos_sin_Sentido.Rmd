@@ -1,6 +1,6 @@
-# Impactos de datos sin sentido sobre los analisis de dinamica poblacional
+# Impactos de datos sin sentido sobre los análisis de dinámica poblacional
 
-Por: RLT
+Por: Raymond L. Tremblay
 
 El valor de los estudios cientificos es que los datos representa una visión suficiente cerca a la realidad. El objetivo es tener una apreciación de los parametros más importante para definir un cierto patrón o interacciones. Por concequencia la base de todo estudios is based on the fundamewntal units of data collection.  If the data do not represent the reality of the study then the interperettion of the analysis is likely to be erroneous. Fancy mathematics and analyses will NOT result in better or more realistic interpretation if the data is erroneous.  
 
@@ -10,7 +10,7 @@ In this section we will consider different aspects of population projection matr
 
 ## Small sample size or rare events
 
-Without a doubt the main topic (although exclusive) for the use of PPM has been to evaluate population projection of rare or endangered species (ref). Consequently, sample size of the study or some of the life stages/ages are reduced. These reduced sample size cause parameter estimates and often non-sensical results.  
+Without a doubt the main topic for the use of PPM has been to evaluate population projection of rare or endangered species (other questions are cological or evolutionary) (ref). Consequently, sample size of the study or some of the life stages/ages are reduced. These reduced sample size cause parameter estimates and often non-sensical results.  
 
 ***
 
@@ -308,6 +308,8 @@ plot_life_cycle(Dirichlet, stages=stages)
 ```
 
 
+## Dirichlet approach for estimating confidence intervals
+
 To evaluate the 95% CI interval simultaneously of the four transitions we use the **library(MCMCpack)**, which is a package dedicated to performaing Markov Chain Monte Carlo simulations.  We will use the function *MCmultinomdirichlet*.  Note that the first list are the proportion as shown in the matrix for the seedling stage c(.50*b,.2*b,.0*b,.3*b) multiplied by the sample size b= 25. The second list are the Bayesian priors c(.5,.2,0.0001,.3), in this case I assumed that the sum of the priors are equal to 1. This results in a very low confidence in the prior perception of what the transiiton are. The second assumption is the priors for the transtion observed are equal, however we could have used c(1,1,0,.0001, 1), where this prior suggest an equal transition for all but seedlings growing to becoming an adult.    
 
 The concept of the prior cannot be explained throurougly here, see the following references for more in depth information. 
@@ -315,9 +317,13 @@ The concept of the prior cannot be explained throurougly here, see the following
 The results in the figure show that there is lots of dispersion around the mean proportion of the statis and transition as expected because of the small sample size.  To convince yourself change the value of **b** to a large number and see how the distibution changes
 
 
-```{r}
+```{r, message=FALSE}
 
 library(MCMCpack)
+```
+
+
+```{r}
 b=25
 L=posteriorPRIORL <- MCmultinomdirichlet(c(.50*b,.2*b,.0*b,.3*b), c(.5,.2,0.0001,.3), mc=10000)
 dfL=as.data.frame(L)
@@ -335,7 +341,7 @@ levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.4"]="Dead"
 
 library(ggplot2)
 ggplot(data=All_Data3, aes(x=values, fill=ind, colour=ind))+
-  geom_density(aes(adjust=6, alpha=.5)) +
+  geom_density(aes(alpha=.5)) +
   scale_y_continuous(limit=c(0, 5.5))+
   scale_colour_hue(l=60)+
   facet_grid(~ind)
@@ -344,34 +350,44 @@ ggplot(data=All_Data3, aes(x=values, fill=ind, colour=ind))+
 
 ```
 
-NOw let us calculate the 95% CI of the transitions
+Now let us calculate the 95% CI of the transitions
+
+  - Confidence intervals of transitions, stasis and survivorship based on on simulation and Dirichlet distribution.
+  
+Important aspects to note.
+
+ - the 95% CI are bounded between 0 and 1. Values below zero or above one in parameters wouuld be non-sensicle.
+ - the sum of the mean is equal to 1.
+ - the sum of the median is equal to 1.
+ - the shape of the distribution is NOT normally distributed, see previous figure.  The shape of the distibution is called a beta distribution. 
+ 
+
+
+
 
 ```{r}
 
 library(plyr)
 library(reshape2)
 
-MEANS=ddply(All_Data3, c("ind"), summarise,
+Transitions=ddply(All_Data3, c("ind"), summarise,
             mean = round(mean(values),3), sd = round(sd(values),4),
+            median= median(values),
             #sem = round(sd(values)/sqrt(length(values)),6),
             CI5 = quantile(values, probs = c(0.05)),
-            CI95 = round(quantile(values, probs = c(0.95)), 4)
+            CI95 = round(quantile(values, probs = c(0.95)), 4),
+            min=min(values),
+            max=max(values)
             )
 
-MEANS
+Transitions
 
-
-#Extract only the mean value for the transient analysis
-formatrix=ddply(All_Data3, c("ind", "T"), summarise,
-                mean = round(mean(values),5))
-#remove the dead probilities = not needed, it is calculated 
-fx=formatrix[formatrix$ind !="Dead",]
 ```
 
 
-  - Confidence intervals of transtion, stasis and survivorship based on normal distribution
+
   
-  - Dirichlet approach for estimating confidence intervals
+
   
 
 
