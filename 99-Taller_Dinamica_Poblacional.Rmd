@@ -1,6 +1,6 @@
 # Taller de Dinamica Poblacional
 
-
+## Esta sección tiene objetivo de presentar una sinopsis de un taller de 3 dias sobre el uso de matrices para el estudio de Dinámica poblacional. 
 
 Lugar: Universidad Nacional de San Antonio Abad del Cusco, Perú Fecha
 del taller: 24-26 Noviembre 2023
@@ -107,8 +107,7 @@ predicciones de la viabilidad de las poblaciones.
 • Modelar el tamaño poblacional de la población de estudio para
 determinar su posible riesgo de extinción
 
-```         
-```
+
 
 ## Introducción
 
@@ -119,6 +118,7 @@ determinar su posible riesgo de extinción
     -   Introducción al taller y Presentación de conceptos básicos
         (Capítulo 2; Tremblay)
     -   Diagrama del ciclo de vida (Capítulo 3; Ospina)
+    -   Preparación del viaje de campo
 
 **24 noviembre: Viaje de campo**
 
@@ -128,16 +128,17 @@ determinar su posible riesgo de extinción
 
 -   8:30am- 5:00pm.
 
-    -   \- Determinación de la especie a estudiar (Ospina y Tremblay)
+    -   Determinación de la especie a estudiar (Ospina y Tremblay)
 
-    -   \- Métodos de recolección de datos - Recolección de datos
-        (Capítulo 4 y 22; Ospina y Tremblay)
+    -   Métodos de recolección de datos (Capítulo 4 y 22; Ospina y Tremblay)
+    -   Recolección de datos
+        
 
 **25 noviembre:**
 
 8:30 pm-10:30 pm
 
--   \- Teoria:
+-    Teoria:
     -   Proponer un ciclo de vida (Capítulo 3)
     -   Quien se reproduce y como calcular la fecundidad (Capitulo 6)
     -   Como se ama la matriz (3 x 3) y ejercicio (Capítulo 5)
@@ -147,7 +148,7 @@ determinar su posible riesgo de extinción
 
 10:30am -- 12:00pm
 
--   \- Introducción a la teoria de MPP
+-    Introducción a la teoria de MPP
     -   crecimiento asimtotico (Capítulo 9)
     -   elasticidad (Capitulo 10)
     -   estructura estable (Capitulo Nuevo)
@@ -157,7 +158,7 @@ Almuerzo 12:00- 1:00pm
 
 1:00pm - 2:30 pm
 
--   \- Organización de los datos en Excel/Numbers/Sheet, estructura de
+-    Organización de los datos en Excel/Numbers/Sheet, estructura de
     la población (Capítulo 4 y 22; Ospina y Tremblay)
 
 2:30pm -- 5:30pm
@@ -171,7 +172,7 @@ Almuerzo 12:00- 1:00pm
     -   Métodos para calcular contruir la matriz (Capítulo 8, Tremblay)
     -   Incluir la fecundidad (Capítulo 6)
     -   Matriz bayesiana a priori (Capítulo 8, Tremblay)
-    -   Calcular los indices de **Oquidea cuscanensis**
+    -   Calcular los indices de **Oquídea cuscanensis**
         -   crecimiento asintótico (Capítulo 9)
         -   elasticidad (Capítulo 10)
         -   estructura estable (Capítulo Nuevo)
@@ -186,7 +187,7 @@ Almuerzo 12:00- 1:00pm
 
 10:30am -- 12:00pm
 
--   Dinamica transitoria/ \*transfer function\* (Capítulo 12; Ospina)
+-   Dinamica transitoria *transfer function* (Capítulo 12; Ospina)
 
 -   Dinámica, análisis de viabilidad poblacional: el futuro de la
     especie (Capítulo 9: Tremblay)
@@ -195,15 +196,15 @@ Almuerzo 12:00- 1:00pm
 
 1:00pm -- 4:30pm
 
--   Estudio de casos
-    -   *Caladenia xxx. Terrestre con latencia*
-    -   *Dracula chimaera*. Epífita y Terrestre
-    -   *Dendrophylax lindenii*. Epífita áfila
+-   Estudio de casos, asignaciones de tarea. 
+    -   *Caladenia xxx*, Terrestre con latencia
+    -   *Dracula chimaera*, Epífita y Terrestre
+    -   *Dendrophylax lindenii*, Epífita áfila
     -   
 
 4:30pm -- 5:30pm
 
--   Presentaciones de trabajo
+-   Presentaciones de trabajo (20 minutos por grupo, 10 minutos de preguntas)
 
 ## Materiales necesarios:
 
@@ -211,9 +212,10 @@ Almuerzo 12:00- 1:00pm
 
 -   Los participantes pueden trabajar en parejas en caso de que sea
     difícil conseguir una computadora portatil.\
--   Es necesario acudir a las sesiones teóricas con los programas y
+-   Es necesario acudir a las sesiones teórica/práctica con los programas y
     paquetes previamente instalados, se enviará instrucciones y brindará
     oportuna asesoría.
+-   **La instalación de los programados se harán una semana antes del taller, en una conferencia por ZOOM**. 
 
 ## Bibliografía
 
@@ -259,14 +261,14 @@ Tremblay, R. L., Tyre, A. J., Pérez, M. E., & Ackerman, J. D. (2021).
 estimate rare transition events**. Ecological Modelling, 447, 109526.
 <https://doi.org/10.1016/j.ecolmodel.2021.109526>.
 
+
 **Que conocemos de estas especies?**
 
-Especies reportadas de trabajo
+Especies reportadas de en el sitio de muestreo (día uno)
 
--   Cyrtochilum cimiciferum (Rchb.f.) Dalström (Tiene una gran poblacion
-    )
+-   *Cyrtochilum cimiciferum* (Rchb.f.) Dalström (Tiene una gran población)
 
--   Cyrtochilum myanthum (Lindl.) Kraenzl.1917
+-   *Cyrtochilum myanthum* (Lindl.) Kraenzl.1917
 
 -   *Epidendrum chalmersii* Hágsater & Ric. Fernández 2013 (endémico de
     la región Cusco)
