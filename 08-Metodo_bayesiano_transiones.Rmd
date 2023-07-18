@@ -515,11 +515,13 @@ RLT_0.5 <- tibble(lposterior = map_dbl(RLT_0.5, lambda)) # convertir la lista en
 ggplot(data = RLT_0.5,
        mapping = aes(x = lposterior)) + 
   geom_histogram(binwidth = 0.01, colour="white") + 
-  rlt_theme
+  rlt_theme+ geom_vline(xintercept = 1, 
+                color = "blue", size=1.5)
 ```
 
-## Detemrinar si el $\lambda$ es significativamente diferente de 1
+## Determinar si el $\lambda$ es significativamente diferente de 1
 
+Esa prueba es basada en la simulación de la distribución poesterior.  Se calcula la distribución de los lambda's y se determina si el lmabda observado es significativamente más grande que 1. 
 
 También podemos calcular algunas estadísticas de resumen. `pincrease` es el
 probabilidad de que $\lambda > 1$.
