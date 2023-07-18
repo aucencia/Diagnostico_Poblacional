@@ -7,7 +7,7 @@ del taller: 24-26 Noviembre 2023
 
 ## *Impartido por*:
 
-*Dr. Raymond L. Tremblay:*
+**Dr. Raymond L. Tremblay**:
 
 Universidad de Puerto Rico Presidente de Analítica Fundación, Inc
 
@@ -17,7 +17,7 @@ e-mail:
 
 -   [tremblayanaliticafun\@gmail.com](mailto:tremblayanaliticafun@gmail.com){.email}
 
-*Dra. Nhora Helena Ospina-Calderón*:
+**Dra. Nhora Helena Ospina-Calderón**:
 
 Pontificia Universidad Javeriana Seccional Cali Profesora-investigadora
 
@@ -29,7 +29,7 @@ e-mail:
 
 Tres días con 26 horas totales de Taller-teórico practico con una
 experiencia de recolección de datos en el campo (8 horas) y dos días de
-taller--teórico practico y análisis datos (14 horas). Instrucción en
+taller--teórico practico y análisis de datos (14 horas). Instrucción en
 español.
 
 ## Certificación A nombre de la

@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-07-13" />
+<meta name="date" content="2023-07-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -230,9 +230,12 @@ div.csl-indent {
 <li class="chapter" data-level="7" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html"><i class="fa fa-check"></i><b>7</b> Matrices de transicion, fecundidad y clonal</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#por-raymond"><i class="fa fa-check"></i><b>7.1</b> Por: Raymond</a></li>
-<li class="chapter" data-level="7.2" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#métodos-tradicional-de-calcular-las-transiciones-2"><i class="fa fa-check"></i><b>7.2</b> Métodos tradicional de calcular las transiciones</a></li>
-<li class="chapter" data-level="7.3" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#problema-con-el-uso-tradicional-2"><i class="fa fa-check"></i><b>7.3</b> Problema con el uso tradicional</a></li>
-<li class="chapter" data-level="7.4" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#referencias-5"><i class="fa fa-check"></i><b>7.4</b> Referencias</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#tres-tipos-de-matrices"><i class="fa fa-check"></i><b>7.2</b> Tres tipos de matrices</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#matu-matriz-de-transiciones"><i class="fa fa-check"></i><b>7.3</b> MatU: Matriz de transiciones</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#matf-matriz-de-fecundidad"><i class="fa fa-check"></i><b>7.4</b> MatF: Matriz de fecundidad</a></li>
+<li class="chapter" data-level="7.5" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#matc-matriz-de-clonaje"><i class="fa fa-check"></i><b>7.5</b> MatC = Matriz de clonaje</a></li>
+<li class="chapter" data-level="7.6" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#problema-con-el-uso-tradicional-2"><i class="fa fa-check"></i><b>7.6</b> Problema con el uso tradicional</a></li>
+<li class="chapter" data-level="7.7" data-path="matrices-de-transicion-fecundidad-y-clonal.html"><a href="matrices-de-transicion-fecundidad-y-clonal.html#referencias-5"><i class="fa fa-check"></i><b>7.7</b> Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="método-bayesiano-de-calcular-las-transciones.html"><a href="método-bayesiano-de-calcular-las-transciones.html"><i class="fa fa-check"></i><b>8</b> Método bayesiano de calcular las transciones</a>
 <ul>
@@ -437,14 +440,14 @@ del taller: 24-26 Noviembre 2023</p>
 </div>
 <div id="impartido-por" class="section level2 hasAnchor" number="29.2">
 <h2><span class="header-section-number">29.2</span> <em>Impartido por</em>:<a href="taller-de-dinamica-poblacional.html#impartido-por" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><em>Dr. Raymond L. Tremblay:</em></p>
+<p><strong>Dr. Raymond L. Tremblay</strong>:</p>
 <p>Universidad de Puerto Rico Presidente de Analítica Fundación, Inc</p>
 <p>e-mail:</p>
 <ul>
 <li><p><a href="mailto:raymond.tremblay@upr.edu" class="email">raymond.tremblay@upr.edu</a></p></li>
 <li><p><a href="mailto:tremblayanaliticafun@gmail.com" class="email">tremblayanaliticafun@gmail.com</a></p></li>
 </ul>
-<p><em>Dra. Nhora Helena Ospina-Calderón</em>:</p>
+<p><strong>Dra. Nhora Helena Ospina-Calderón</strong>:</p>
 <p>Pontificia Universidad Javeriana Seccional Cali Profesora-investigadora</p>
 <p>e-mail:</p>
 <ul>
@@ -455,7 +458,7 @@ del taller: 24-26 Noviembre 2023</p>
 <h2><span class="header-section-number">29.3</span> Duración del taller:<a href="taller-de-dinamica-poblacional.html#duración-del-taller" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Tres días con 26 horas totales de Taller-teórico practico con una
 experiencia de recolección de datos en el campo (8 horas) y dos días de
-taller–teórico practico y análisis datos (14 horas). Instrucción en
+taller–teórico practico y análisis de datos (14 horas). Instrucción en
 español.</p>
 </div>
 <div id="certificación-a-nombre-de-la" class="section level2 hasAnchor" number="29.4">
@@ -719,6 +722,9 @@ Nunney, Leonard, and Kathleen A Campbell. 1993. <span>“Assessing Minimum Viabl
 </div>
 <div class="csl-entry">
 Parés-Ramos, Isabel K, William A Gould, and T Mitchell Aide. 2008. <span>“Agricultural Abandonment, Suburban Growth, and Forest Expansion in Puerto Rico Between 1991 and 2000.”</span> <em>Ecology and Society</em> 13 (2).
+</div>
+<div class="csl-entry">
+Pellegrino, Giuseppe, and Francesca Bellusci. 2014. <span>“Effects of Human Disturbance on Reproductive Success and Population Viability of Serapias Cordigera (Orchidaceae).”</span> <em>Botanical Journal of the Linnean Society</em> 176 (3): 408–20.
 </div>
 <div class="csl-entry">
 Rasmussen, Hanne N, Kingsley W Dixon, Jana Jersáková, and Tamara Těšitelová. 2015. <span>“Germination and Seedling Establishment in Orchids: A Complex of Requirements.”</span> <em>Annals of Botany</em> 116 (3): 391–402.
