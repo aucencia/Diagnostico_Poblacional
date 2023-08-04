@@ -2,21 +2,23 @@
 
 Por: Raymond L. Tremblay
 
-El valor de los estudios cientificos es que los datos representa una visión suficiente cerca a la realidad. El objetivo es tener una apreciación de los parametros más importante para definir un cierto patrón o interacciones. Por concequencia la base de todo estudios is based on the fundamewntal units of data collection.  If the data do not represent the reality of the study then the interperettion of the analysis is likely to be erroneous. Fancy mathematics and analyses will NOT result in better or more realistic interpretation if the data is erroneous.  
+El valor principal de los estudios científicos proviene es que los datos representa una visión suficiente cerca a la realidad. En ningún estudio ecológico se podrá obtener **TODOS** los datos para evaluar la relación biótica y abiótica sobre un organismos y todas sus interacciones.   Ese modelo es primero demasionado complejo y irreal dentro del concepto de trabajo científico. El objetivo es tener una apreciación de los parámetros más importante para definir un cierto patrón o interacciones. Por consecuencia la base de todo estudios esta fundado en las unidades de los muestreos de colección de datos. Si los datos no representa la realidad del estudio la interpretaciones de los analisis pudiese ser erronea. La matematica y sus ecuaciones y modelos no harán que la biología sea más cerca a la realidad si desde el principio los datos y el metodo de recolección de datos es erróneo.  
 
-In this section we will consider different aspects of population projection matrix analises and different aspects of the data collection or analysis which are problematic. For each of the problematic situation I will show an example and how it impacts the results and analyses.  These "Impacts" are not meant to be inclusive of all possible results of non-sensical data, but an example of not considering these issues and how it may warp the intepretations.  Thus a warning to all population biologist to be weary of these issues.  
-
-***
-
-## Small sample size or rare events
-
-Without a doubt the main topic for the use of PPM has been to evaluate population projection of rare or endangered species (other questions are cological or evolutionary) (ref). Consequently, sample size of the study or some of the life stages/ages are reduced. These reduced sample size cause parameter estimates and often non-sensical results.  
+En esta sección evaluamos diferentes aspectos de los analisis matriciales poblacional de projección y diferentes aspectos de la recolección de datos que pudiese ser problemáticos cuando uno considera la biología de una especie. Estos "Impactos" no pretenden incluir todos las posibles efecto de datos sin sentido, sino unos ejemplos si uno no considera estos problemas y cómo pueden distorsionar las interpretaciones. Por lo tanto, una advertencia a todos los biólogos de población para que estén consciente de estos temas.
 
 ***
 
-### No Mortality/Perfect survivorship
+## Tamaño de muestra pequeño o eventos raros
 
-Consider a species were data is collected and the transition matrix (Sp1matU) is as follows and fertility matriz is (Sp1matF). Note that none of the individuals died in the adult stage (perfect survivorship).  Consiquently, the population size never decreases or increases after a time period.   Under ALL biologically realistic modelling we would expect populaiton size to sdtart decreasing if a population has no receuitment.   
+Sin duda, el tema principal para el uso de PPM ha sido evaluar la proyección de población de especies raras o en peligro de extinción (otras cuestiones son ecológicas o evolutivas) (ref). En consecuencia, las especies raras o en peligro de extinción son naturalmente pequeñas y reduce el tamaño de la muestra del estudio o de algunas de las etapas/edades de la vida. Estos tamaños de muestra reducidos provocan estimaciones de parámetros y, a menudo, resultados sin sentido biológicos.
+
+
+***
+
+### Sin Mortalidad/Supervivencia Perfecta
+
+Considere una especie donde se recopilan datos de una especies **Sp1** y la matriz de transición **Sp1matU** es la siguiente y la matriz de fertilidad es **Sp1matF**. Tenga en cuenta que ninguno de los individuos murió en la etapa adulta (supervivencia perfecta). En consecuencia, el tamaño de la población nunca disminuye o aumenta después de un período de tiempo. Bajo TODOS los modelos biológicamente realistas, esperaríamos que el tamaño de la población comenzara a disminuir si una población no tiene reproducción.  Pero en este caso como todos los individuos de la etapa sobreviven la población es *eterna*.  
+
 
 ```{r}
 library(DiagrammeR)
@@ -40,10 +42,11 @@ stages <- c("plantula", "juvenil", "adulto")
 plot_life_cycle(Sp1matU, stages=stages, fontsize = 0)
 ```
 
+Así si analizamos esta matriz asumimos que ninguno de los individuos en etapa adulta muere, en ningún momento!!!. Claramente esto no es realista. Para cualquier especie, la probabilidad de muerte en cualquier etapa nunca es cero (aunque podría ser muy pequeña) y, por lo tanto, nuestra matriz no tiene sentido. Considere una especie de árbol, como *Sequoia*, es probable que para los árboles grandes de esta especie la supervivencia sea muy alta entre un año y otro, pero nunca del 100%.  Es que en el sitio de muestreo NO se observo mortalidad de los arboles grandes. 
 
-Thus if we analize this matrix we assume that none of the individuals in the adult stage die, at any time period!!!. Clearly this is not realistic.  For any species the likelyhood of death at any stage is never zero (although is could very small) and thus our matrix is non-sensicle. Consider a tree species, such a *Sequoia*, it is the likely for large trees of this species it is likely to that survivorship is very high, however never 100%.   
+En el siguiente script mostramos que la población no cambia después de 5-6 periodos y se mantiene cercana a uno y no cambia nada aunque no tengamos reclutas (usamos la matriz de transición sin fecundidad). Si no hay reclutas (matriz de fertilidad), el tamaño de la población debería reducirse con el tiempo. Todo modelos de transiciones que no incluye la matriz de fertilidad debería resultar en reducción de tamaño poblacional. 
 
-In the following script we show that population changes after 5 -6 periods reminds close to one and does not change eventhough we have not recruits (we use the transition matrix without fertility).  If there are no recruits (fertility matrix) population size should reduce with time.  
+
 
 ```{r}
 n=c(5,5,5)
@@ -55,9 +58,10 @@ pop.projection(Sp1matU, n=n)$pop.changes
 ```
 
 
-#### Assume a small change in mortality
+####  Suponga un pequeño cambio en la mortalidad.
 
-Note that in this new model although surviviroship is very close to zero (0.995), and consequently population decline in every time period (even if only by a small fraction) is possible. 
+
+Tenga en cuenta que en este nuevo modelo, aunque la tasa de supervivencia es muy cercana a cero (0,995) y, en consecuencia, es posible una disminución de la población en cada período de tiempo (aunque solo sea en una pequeña fracción). Siempre hay que considerar si esta taza de mortalidad es biologicamente real o es un resultado del tamaño de la muestra.  Este valor sugiere que se muestreo 1000 individuos y que 995 sobrevivieron.   Si el tamaño fue de 1000, uno pudiese tener confianza en el parametro.  
 
 ```{r}
 Sp1matU_2 <- rbind(
@@ -80,9 +84,9 @@ pop.projection(Sp1matU_2, n=n)$pop.changes
 
 ***
 
-### Irreducibility: No Transitions between stages
+### Irreductibilidad: No hay transiciones entre etapas
 
-In the present scenario, juveniles do not grow to become adults, all juveniles either remain juveniles or die. Note the life cycle figure where no arrows connect juveniles to adults.   
+En el escenario actual, los juveniles no crecen para convertirse en adultos, todos los juveniles siguen siendo juveniles o mueren. Tenga en cuenta la figura del ciclo de vida donde no hay flechas que conecten a los juveniles con los adultos.
 
 ```{r}
 library(DiagrammeR)
@@ -107,17 +111,18 @@ plot_life_cycle(Sp1matU_NT, stages=stages, fontsize = 0)
 ```
 
 
-As shown by @caswell2000matrix and more recently explored by @stott2010reducibility matrices need to be *irreducible*.  The concept of *irreducibility* is associated with the life cycle of the species and the matrix includes the transitions from all stages to all other stages.    The above life cycle figure is missing two important components in the life history of the species, no juveniles grow to become adults and none of the adults produce seedlings (seeds that grow to seedlings).  
+Como lo muestra @caswell2000matrix y explorado más recientemente por @stott2010, las matrices deben de ser *irreducibles*. El concepto de *irreductibilidad* está asociado con el ciclo de vida de la especie y la matriz incluye las transiciones de todas las etapas a todas las demás etapas. A la figura del ciclo de vida anterior le faltan dos componentes importantes en la historia de vida de la especie, ningún juvenil crece para convertirse en adulto y ninguno de los adultos produce plántulas (semillas que crecen hasta convertirse en plántulas).
 
-An easy way of determining if the matrix is irreducible is to read the follwowing script *isIrreducible* in the package (popdemo). Note that is this case the result is *False* for the above matrix. 
+Una manera fácil de determinar si la matriz es irreducible es correr el siguiente script *isIrreducible* en el paquete (popdemo). Tenga en cuenta que, en este caso, el resultado es *Falso* para la matriz anterior.
+
 
 ```{r}
-isIrreducible(Sp1matU_NT) # for the transiiton matrix, missing a transition stage and fertility
-isIrreducible(Sp1matA_NT) # for the TF matrix, missing a transition stage
+isIrreducible(Sp1matU_NT) # para la matriz de transición, faltando una etapa de transición y fertilidad
+isIrreducible(Sp1matA_NT) # para la matriz TF, falta una etapa de transición
 
-# Now considering Sp1matA_2
+# Ahora considerando Sp1matA_2
 
-isIrreducible(Sp1matA_2) # includes all transitions and fertility
+isIrreducible(Sp1matA_2) # incluye todas las transiciones y la fertilidad
 ```
 
 
@@ -125,11 +130,12 @@ isIrreducible(Sp1matA_2) # includes all transitions and fertility
 
 ### No survivorship
 
-Complete mortality of one or more stages. It is often observed that survivorship of smaller individuals or the first stage of the life cycle of a species is highly risky, where the likelihood of survbivorship is very low. For example, most seeds do not survive to germinate. This is likely the norm in orchids where seed production is very high (sometimes millions seeds in one seed capsule, i.e *Catasetum*; ref), but few are shown to germinate (ref). However this is not limited to orchids, in trees the same pattern may be observed, for example in *Nothofagus pumilio* seedling recruitment was less than 1.5% @torres2015seed. NEED EXAMPLE OF NO SEED OR SEEDLING RECRUITMENTS.   
+Mortalidad completa de uno o más estadios. A menudo se observa que la supervivencia de los individuos más pequeños o la primera etapa del ciclo de vida de una especie es muy arriesgada, donde la probabilidad de supervivencia es muy baja. Por ejemplo, la mayoría de las semillas no sobreviven para germinar. Esta es probablemente la norma en las orquídeas donde la producción de semillas es muy alta (a veces millones de semillas en una cápsula de semillas, es decir, *Catasetum*; ref), pero pocas germinan (ref). Sin embargo, esto no se limita a las orquídeas, en los árboles se puede observar el mismo patrón, por ejemplo, en *Nothofagus pumilio* el reclutamiento de plántulas fue inferior al 1,5 % @torres2015seed.  NEED EXAMPLE OF NO SEED OR SEEDLING RECRUITMENTS.   
 
 As it is well known that seed germination in orchids is less than straightforward and many variables may influence seed germination @rasmussen2015germination. .......
 
-In the present life cycle graph, none of the seedling survive or growth to the next stage.  Note the first column in the transition matrix all values are zero.  The population may have started with many (even thousands) of seedling, but none grew to become a juvenile or remained as seedlings.  This results in a matrix that is reducible *isIrreducible* = *FALSE* and consequently does not comply with the requirements needed.  
+En el gráfico del ciclo de vida actual, ninguna de las plántulas sobrevive o crece a la siguiente etapa. Tenga en cuenta que en la primera columna de la matriz de transición todos los valores son cero. La población puede haber comenzado con muchas (incluso miles) de plántulas, pero ninguna creció hasta convertirse en un juvenil o permaneció como plántula antes del siguiente muestreo. Esto da como resultado una matriz que es reducible *esIrreducible* = *FALSO* y en consecuencia no cumple con los requisitos necesarios.
+
 
 ```{r}
 library(DiagrammeR)
@@ -156,12 +162,12 @@ isIrreducible(Sp1matU_NS)
 ```
 
 
-## Excessive rounding of values
+## Redondeo excesivo de valores
 
+Uno de los errores más simples en la construcción de los elementos de la matriz es el error de redondeo excesivo u otras estimaciones que dan como resultado valores de supervivencia superiores a 1,00, lo que a veces da como resultado una supervivencia incluso superior al 100 %.
 
-One of the simplest error in the construction of the matrix elements is the excessive rounding error or other estimates which results in values of survivorhip larger than 1.00, resulting sometimes in survivorship that are even above 100%
+Por ejemplo en un análisis de *Serapia cordigera* @pellegrino2014effects. Aquí los autores evaluaron las transiciones entre latencia, plántulas, roseta vegetativa y floración. Aquí mostramos una de estas matrices en el material suplementario. Período de tiempo 2001-2002, A1.
 
-For example in an analysis of *Serapia cordigera* @pellegrino2014effects. Here the authors evaluated the transitions between dormancy, seedlings, vegetative rosette and flowering.  Here we show one of these matrices from the supplementary material. Time period 2001-2002, A1. 
 
 ```{r}
 library(DiagrammeR)
@@ -182,11 +188,11 @@ SerapiaF <- rbind(
 
 SerapiaA = SerapiaU+SerapiaF # TF matrix
 library(Rage)
-stages <- c("dormancy", "seedling", "vegetative", "adult")
+stages <- c("latente", "plantulas", "vegetativa", "adulto")
 
 plot_life_cycle(SerapiaA, stages=stages)
 
-# Note that the sum of survivoship for the dormant stage is larger than 1, Equalling 1.01
+# Tenga en cuenta que la suma de supervivencia para la etapa inactiva es mayor que 1, igual a 1.01
 
 ```
 
@@ -194,16 +200,16 @@ plot_life_cycle(SerapiaA, stages=stages)
 
 ***
 
-## Fertility estimates and life cycle
+## Estimaciones de fertilidad y ciclo de vida
 
-The importance of considering how fertility included in the life cycle is extremely important, and  if erroneously considered may result in results and interpretation that are non-sensicle.  We would show a few example of how these can be included in the life cycle and matrix and result in cause problems.
+La importancia de considerar cómo se incluye la fertilidad en el ciclo de vida es extremadamente influyente en los resultados de los modelos, y si se considera erróneamente puede dar lugar a interpretaciones sin sentido. Mostramos algunos ejemplos de cómo estos pueden incluirse en el ciclo de vida y la matriz y dar como resultado problemas de causa.
 
 
-### Incorrect life cycle and fertility stage
+### Ciclo de vida y etapa de fertilidad incorrectos
 
-Assume you have a species where you model the life cycle as seedling, juvenile and adult.  Fertility is measured as the number of seeds produced by an adult (mean number of seeds per adult).   After collecting the data calculations it is determined that the mean number of seeds per adult is 11000.  If we add this the transition and fertility matrix belowand evaluate the lambda and graph the population growth with the function *project* we have a lambda of 4.93 and after only 5 time periods the number of adults are above 250,000.  Consequently the population growth rate estimeste would be incorrect and misleading. 
+Suponga que tiene una especie en la que modela el ciclo de vida como plántula, juvenil y adulto. La fertilidad se mide como el número de semillas producidas por un adulto (número medio de semillas por adulto). Después de recopilar los cálculos de datos, se determina que el número medio de semillas por adulto es 11000. Si agregamos la matriz de transición y fertilidad a continuación y evaluamos el lambda y graficamos el crecimiento de la población con la función *proyecto*, tenemos un lambda de 4.93 y después de solo 5 períodos de tiempo, el número de adultos supera los 250.000. En consecuencia, la estimación de la tasa de crecimiento de la población sería incorrecta y engañosa. 
 
-The error is that the value in the fertility matrix should correspond to the first stage of the matrix, in this case the seedling stage.  Thus the top right corner of the fertility matrix should not be the mean number of seeds per plant, but the mean number of seedlings produced by a an adult plant.   
+El error es que el valor en la matriz de fertilidad debería corresponder a la primera etapa de la matriz, en este caso la etapa de plántula. Por lo tanto, la esquina superior derecha de la matriz de fertilidad no debe ser la **cantidad media de semillas** por planta, sino la **cantidad media de plántulas** producidas por una planta adulta.
 
 ```{r}
 library(DiagrammeR)
@@ -232,7 +238,7 @@ pr <- project(Sp1matA_Fert, vector="n", time=5)
 plot(pr) # Note that even after just 5 time periods, the number of adults is larger than 250,000 individuals
 ```
 
-If we wish to add a seed stage than we have to include the stage in our model and matrix with a new stage *the seed stage*, and have an estimate of the number of seeds that germinate and become seddlings.  In the case of orchids, this likely to be a difficult estimate to attain because orchids seeds are difficult to follow in nature unless either the seed packet method developped by.   or some genetic fingerprinting method was used to determine the provenance of the seeds.  
+Si deseamos agregar una etapa de semilla, debemos incluir la etapa en nuestro modelo y matriz con una nueva etapa *la etapa de semilla*, y tener una estimación del número de semillas que germinan y se convierten en plántulas. En el caso de las orquídeas, es probable que sea una estimación difícil de lograr porque las semillas de las orquídeas son difíciles de seguir en la naturaleza a menos que se haya desarrollado el método del paquete de semillas o se utilizó algún método de huella genética para determinar la procedencia de las semillas.
 
 ```{r}
 library(DiagrammeR)
@@ -264,66 +270,65 @@ pr <- project(Sp1matA_Fert2, vector="n", time=5)
 plot(pr) # Note that now the number of adults did not increase to the level of the previous model
 ```
 
-In the above example we have not included a seed dormancy stage.  In many plant species, seeds can be dormant for one or more years.  It is not known if seeds in orchids are dormant for a long time @gale2010constraints except for a few species which have shown that seeds are still alive after mutliple years in the soil using tetrazolium stain test @rasmussen1993seed and @whigham2006seed. 
+En el ejemplo anterior no hemos incluido una etapa de latencia de semillas. En muchas especies de plantas, las semillas pueden permanecer latentes durante uno o más años. No se sabe si las semillas de las orquídeas están inactivas durante mucho tiempo @gale2010restricciones, excepto para algunas especies que han demostrado que las semillas aún están vivas después de varios años en el suelo usando la prueba de tinción de tetrazolio @rasmussen1993seed y @whigham2006seed.
 
 ***
 
 
-## Data Analysis issues
+## Problemas de análisis de datos
 
-### Incorrect confidence intervals estimates
+### Estimaciones de intervalos de confianza incorrectas
 
-Estimates of dispersion in the survival, transition, death and fertility are matrix parameter are useful in multiple ways. The most basic approach is understanding the uncertainty in the parameter as a function of the sample size, parameters with large dispersion should be viewed with caution. The disperison parameters maybe useful for simulations and understanding the uncertainty in the population parameters such as lambda and the probability of persistence and extinction.   
+Las estimaciones de dispersión en los parámetros de la matriz de supervivencia, transición, muerte y fertilidad son útiles de múltiples maneras. El enfoque más básico es comprender la incertidumbre en el parámetro como una función del tamaño de la muestra, los parámetros con gran dispersión deben verse con precaución. Los parámetros de dispersión pueden ser útiles para simulaciones y comprender la incertidumbre en los parámetros de población como lambda y la probabilidad de persistencia y extinción.
 
-The parameter of survival, death, stasis and transitions are NOT normally distributed as the values range from zero to 1.  No value can be smaller than zero or larger than one, including the 95% confidence intervals (bounded by 0 and 1). If the gaussian (normal) distribution it is likely that the 95% CI will be outof bound. Let us assume we wish to calculate the probability of survivorship of one stage and its 95% confidence intervals.
+Los parámetros de supervivencia, muerte, estasis y transiciones NO se distribuyen normalmente ya que los valores van de cero a 1. Ningún valor puede ser menor que cero o mayor que uno, incluidos los intervalos de confianza del 95 % (limitados por 0 y 1). Si se usa la distribución gaussiana (normal) es probable que el IC del 95 % esté fuera de los límites. Supongamos que deseamos calcular la probabilidad de supervivencia de una etapa y sus intervalos de confianza del 95%.
 
-We surveyed 25 individuals were 20 survived
+Encuestamos a 20 individuos de los cuales 19 sobrevivieron
 
- - Construct a 95% confidence interval of the proportion of individuals that died
+ - Construya un intervalo de confianza del 95% de la proporción de individuos que murieron
  
- Where the proportion that died is $\hat{p}$ and the number that died is $n_d$ and $n$ is the sample size
+Donde la proporción que murió es $\hat{p}$ y el número que murió es $n_d$ y $n$ es el tamaño de la muestra
  
  
- $$\hat{p}=\frac{n_d}{n}$$ with a probability of death of 20%. 
+$$\hat{p}=\frac{n_d}{n}$$ con una probabilidad de muerte del 20%. 
  
  
 
 ```{r}
-p=5/25
+p=1/20
 p
 ```
 
 
-The 95% CI of a proportion is calculated 
+El IC del 95% de una proporción se calcula
 
 $$ \hat{p}\pm Z_{0.05}*\sqrt{}(\frac{\hat{p}(1-\hat{p})}{n})$$
-- Z_{0.05} is the Z critical value for a 95% CI = 1.955
+- Z_{0.05} es el valor crítico de Z para un IC del 95% = 1.955
 
 ```{r}
-n=25
-HCI=p+1.96*sqrt((p*(1-p))/n) #High CI
+n=20
+HCI=p+(1.96*sqrt((p*(1-p))/n)) # IC alto
 HCI
 
-LCI=p-1.96*sqrt((p*(1-p))/n) #Low CI
-LCI
+LCI=p-(1.96*sqrt((p*(1-p))/n)) # IC bajo
+LCI # Nota que el valor es sin sentido, ya que es negativo
 ```
 
-An easier method is using the R function *propCI* form the **library(interceptCI)**
+Un método más fácil es usar la función R *propCI* de la **biblioteca(interceptCI)**
 
-
- 
 
 ```{r}
 library(interpretCI)
 
-result=propCI(n=25, p=0.2, alpha=0.05)
+resultado=propCI(n=20, p=0.05, alpha=0.05)
 
-result
+resultado
 ```
 
-However how do calculate the 95% CI when there are more than 2 proportions? Because the proportion of all stages dependent on the proportion of the other stages, analisis have to consider the proportion and the 95% CI have to include all stages simultaneously. The function required is the multinomial (multi group) dirichlet function.  
+Sin embargo, ¿cómo se calcula el IC del 95% cuando hay más de 2 proporciones? Debido a que la proporción de todas las etapas depende de la proporción de las otras etapas, el análisis debe considerar la proporción y el IC del 95% debe incluir todas las etapas simultáneamente. La función requerida es la función de Dirichlet multinomial (multigrupo).
 
-In the analysis we estimate the 95% confidence intervals of the transition and stasis of seedlings to seedlings (50%), juveniles (20%), adults (0%) and death (30%). Note the life cycle graph which by as usual excludes the probabilty of seedlings dying. 
+
+En el análisis estimamos los intervalos de confianza del 95% de la transición y estasis de plántulas a plántulas (50%), juveniles (20%), adultos (0%) y muerte (30%). Tenga en cuenta el gráfico del ciclo de vida que, como de costumbre, excluye la probabilidad de que mueran las plántulas.
 
 ```{r}
 
@@ -340,13 +345,13 @@ plot_life_cycle(Dirichlet, stages=stages)
 ```
 
 
-## Dirichlet approach for estimating confidence intervals
+## Enfoque de Dirichlet para estimar intervalos de confianza
 
-To evaluate the 95% CI interval simultaneously of the four transitions we use the **library(MCMCpack)**, which is a package dedicated to performaing Markov Chain Monte Carlo simulations.  We will use the function *MCmultinomdirichlet*.  Note that the first list are the proportion as shown in the matrix for the seedling stage c(.50*b,.2*b,.0*b,.3*b) multiplied by the sample size b= 25. The second list are the Bayesian priors c(.5,.2,0.0001,.3), in this case I assumed that the sum of the priors are equal to 1. This results in a very low confidence in the prior perception of what the transiiton are. The second assumption is the priors for the transtion observed are equal, however we could have used c(1,1,0,.0001, 1), where this prior suggest an equal transition for all but seedlings growing to becoming an adult.    
+Para evaluar el intervalo IC del 95% simultáneamente de las cuatro transiciones, usamos la **biblioteca (MCMCpack)**, que es un paquete dedicado a realizar simulaciones de Markov Chain Monte Carlo. Usaremos la función *MCmultinomdirichlet*. Tenga en cuenta que la primera lista son las proporciones que se muestran en la matriz para la etapa de plántula c(.50*b,.2*b,.0*b,.3*b) multiplicadas por el tamaño de la muestra b= 25. La segunda lista son los priores bayesianos c(.5,.2,0.0001,.3), en este caso asumí que la suma de los previos es igual a 1. Esto da como resultado una confianza muy baja en la percepción previa de lo que es la transición. son. La segunda suposición es que los previos para la transición observada son iguales, sin embargo, podríamos haber usado c(1,1,0,.000001, 1), donde este previo sugiere una transición igual para todos menos las plántulas que crecen hasta convertirse en adultos.   
 
-The concept of the prior cannot be explained throurougly here, see the following references for more in depth information. 
+El concepto de lo anterior no se puede explicar completamente aquí, consulte las siguientes referencias para obtener información más detallada.
 
-The results in the figure show that there is lots of dispersion around the mean proportion of the statis and transition as expected because of the small sample size.  To convince yourself change the value of **b** to a large number and see how the distibution changes
+Los resultados en la figura muestran que hay mucha dispersión alrededor de la proporción media de las estadísticas y la transición como se esperaba debido al pequeño tamaño de la muestra. Para convencerte, cambia el valor de **b** a un número grande y verás cómo cambia la distribución.
 
 
 ```{r, message=FALSE}
@@ -366,10 +371,10 @@ stack_dfL=stack(dfL)
 comb_dfbL= cbind(stack_dfL, T="25")
 
 All_Data3=comb_dfbL
-levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.1"]="Seedling"
+levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.1"]="Plantulas"
 levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.2"]="Juvenil"
-levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.3"]="Adult"
-levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.4"]="Dead"
+levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.3"]="Adulto"
+levels(All_Data3$ind)[levels(All_Data3$ind)=="pi.4"]="Muerto"
 
 library(ggplot2)
 ggplot(data=All_Data3, aes(x=values, fill=ind, colour=ind))+
@@ -382,18 +387,17 @@ ggplot(data=All_Data3, aes(x=values, fill=ind, colour=ind))+
 
 ```
 
-Now let us calculate the 95% CI of the transitions
 
-  - Confidence intervals of transitions, stasis and survivorship based on on simulation and Dirichlet distribution.
+Ahora calculemos el IC del 95% de las transiciones
+
+  - Intervalos de confianza de transiciones, estasis y supervivencia basados ​​en simulación y distribución de Dirichlet.
   
-Important aspects to note.
+Aspectos importantes a tener en cuenta.
 
- - the 95% CI are bounded between 0 and 1. Values below zero or above one in parameters wouuld be non-sensicle.
- - the sum of the mean is equal to 1.
- - the sum of the median is equal to 1.
- - the shape of the distribution is NOT normally distributed, see previous figure.  The shape of the distibution is called a beta distribution. 
- 
-
+ - los IC del 95% están acotados entre 0 y 1. Los valores por debajo de cero o por encima de uno en los parámetros no tendrían sentido.
+ - la suma de la media es igual a 1.
+ - la suma de la mediana es igual a 1.
+ - la forma de la distribución NO se distribuye normalmente, ver figura anterior. La forma de la distribución se llama distribución beta.
 
 
 
@@ -417,10 +421,56 @@ Transitions
 ```
 
 
+Para comparar con el ejemplo anterior aumimos que en lado de tener solamente 25 plantas teniamos 250 plantas para ls estimados.
+
+Nota que la mediana sigue en el mismo lugar (casi) pero los IC cambian mucho y es más reducido, ya que con más datos en el muestreo resulta en más confianza y reducción en el IC. 
+
 
   
+```{r}
+b=250
+L=posteriorPRIORL <- MCmultinomdirichlet(c(.50*b,.2*b,.0*b,.3*b), c(.5,.2,0.0001,.3), mc=10000)
+dfL=as.data.frame(L)
+t(summary(dfL))
 
+#head(dfL)
+stack_dfL=stack(dfL)
+comb_dfbL= cbind(stack_dfL, T="25")
+
+All_Data4=comb_dfbL
+levels(All_Data4$ind)[levels(All_Data3$ind)=="pi.1"]="Plantulas"
+levels(All_Data4$ind)[levels(All_Data3$ind)=="pi.2"]="Juvenil"
+levels(All_Data4$ind)[levels(All_Data3$ind)=="pi.3"]="Adulto"
+levels(All_Data4$ind)[levels(All_Data3$ind)=="pi.4"]="Muerto"
+
+library(ggplot2)
+ggplot(data=All_Data4, aes(x=values, fill=ind, colour=ind))+
+  geom_density(aes(alpha=.5)) +
+  scale_y_continuous(limit=c(0, 18))+
+  scale_colour_hue(l=60)+
+  facet_grid(~ind)
+
+
+
+```
   
+```{r}
 
+library(plyr)
+library(reshape2)
+
+Transitions=ddply(All_Data4, c("ind"), summarise,
+            mean = round(mean(values),3), sd = round(sd(values),4),
+            median= median(values),
+            #sem = round(sd(values)/sqrt(length(values)),6),
+            CI5 = quantile(values, probs = c(0.05)),
+            CI95 = round(quantile(values, probs = c(0.95)), 4),
+            min=min(values),
+            max=max(values)
+            )
+
+Transitions
+
+```
 
 

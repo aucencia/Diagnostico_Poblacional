@@ -16,8 +16,7 @@ library(kableExtra)
 
 ```{r}
 
-
-load("~/Dropbox/GitHub_Dropbox_Drive/GitHub/Taller_Demo_Peru/Taller_Diagnostico_Poblacional/COMPADRE_v.6.23.5.0.RData")
+load("~/Library/CloudStorage/Dropbox/GitHub_Dropbox_Drive/GitHub/Diagnostico_Poblacional/Diagnostico_Poblacional/COMPADRE_v.6.23.5.0.RData")
 
 ALLSp=as_cdb(compadre)  # Un baso critico: Convertir la base de datos anterior COM(P)ADRE (de clase 'list') en la base en un objeto CompadreDB.
 
