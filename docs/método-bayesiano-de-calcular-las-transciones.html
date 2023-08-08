@@ -209,6 +209,9 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="como-recopilar-datos-en-el-campo.html"><a href="como-recopilar-datos-en-el-campo.html#métodos-de-marca-y-recaptura"><i class="fa fa-check"></i><b>4.2.1</b> Métodos de marca y recaptura</a></li>
 <li class="chapter" data-level="4.2.2" data-path="como-recopilar-datos-en-el-campo.html"><a href="como-recopilar-datos-en-el-campo.html#relocalización-de-individuos"><i class="fa fa-check"></i><b>4.2.2</b> Relocalización de individuos</a></li>
+<li class="chapter" data-level="4.2.3" data-path="como-recopilar-datos-en-el-campo.html"><a href="como-recopilar-datos-en-el-campo.html#plantas-pequeñas-y-epifitas"><i class="fa fa-check"></i><b>4.2.3</b> Plantas pequeñas y epifitas</a></li>
+<li class="chapter" data-level="4.2.4" data-path="como-recopilar-datos-en-el-campo.html"><a href="como-recopilar-datos-en-el-campo.html#marcas-con-banderas."><i class="fa fa-check"></i><b>4.2.4</b> Marcas con banderas.</a></li>
+<li class="chapter" data-level="4.2.5" data-path="como-recopilar-datos-en-el-campo.html"><a href="como-recopilar-datos-en-el-campo.html#metodos-de-triangulación"><i class="fa fa-check"></i><b>4.2.5</b> Metodos de triangulación</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="como-recopilar-datos-en-el-campo.html"><a href="como-recopilar-datos-en-el-campo.html#variables-a-recoger-en-el-campo"><i class="fa fa-check"></i><b>4.3</b> Variables a recoger en el campo</a></li>
 <li class="chapter" data-level="4.4" data-path="como-recopilar-datos-en-el-campo.html"><a href="como-recopilar-datos-en-el-campo.html#referencias-2"><i class="fa fa-check"></i><b>4.4</b> Referencias</a></li>
@@ -466,8 +469,8 @@ div.csl-indent {
 <span id="cb8-10"><a href="método-bayesiano-de-calcular-las-transciones.html#cb8-10" tabindex="-1"></a>stages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;semillas&quot;</span>, <span class="st">&quot;plantulas&quot;</span>, <span class="st">&quot;adultos&quot;</span>)</span>
 <span id="cb8-11"><a href="método-bayesiano-de-calcular-las-transciones.html#cb8-11" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="método-bayesiano-de-calcular-las-transciones.html#cb9-1" tabindex="-1"></a><span class="fu">plot_life_cycle</span>(matA, <span class="at">stages=</span>stages)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2b49a982839930d3c011" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-2b49a982839930d3c011">{"x":{"diagram":"\ndigraph {\n  {\n    graph[overlap=false];\n    rank=same;\n    node [shape= egg , fontsize= 12 ]; \"semillas\"; \"plantulas\"; \"adultos\" \n  } ordering=out\n  x [style=invis]\n  x -> { \"semillas\"; \"plantulas\"; \"adultos\" } [style=invis] \"semillas\" -> \"plantulas\"[minlen=3,fontsize=10,color=grey,xlabel=\" 1\"]\n\"adultos\" -> \"adultos\"[minlen=0,fontsize=10,color=grey,xlabel=\" 0.9\"]\n labelloc=\"t\";\n  label=\"  \"\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f85ff520c0747e71524e" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f85ff520c0747e71524e">{"x":{"diagram":"\ndigraph {\n  {\n    graph[overlap=false];\n    rank=same;\n    node [shape= egg , fontsize= 12 ]; \"semillas\"; \"plantulas\"; \"adultos\" \n  } ordering=out\n  x [style=invis]\n  x -> { \"semillas\"; \"plantulas\"; \"adultos\" } [style=invis] \"semillas\" -> \"plantulas\"[minlen=3,fontsize=10,color=grey,xlabel=\" 1\"]\n\"adultos\" -> \"adultos\"[minlen=0,fontsize=10,color=grey,xlabel=\" 0.9\"]\n labelloc=\"t\";\n  label=\"  \"\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <div id="el-paquete-raretrans" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> El paquete “raretrans”<a href="método-bayesiano-de-calcular-las-transciones.html#el-paquete-raretrans" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La información original del uso del paquete se encuentra aqui <a href="https://doi.org/10.1016/j.ecolmodel.2021.109526" class="uri">https://doi.org/10.1016/j.ecolmodel.2021.109526</a>.</p>
@@ -920,10 +923,10 @@ los intervalos creíbles simétricos se reducen bastante:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="método-bayesiano-de-calcular-las-transciones.html#cb51-1" tabindex="-1"></a><span class="fu">sim_transitions</span>(TF, N, <span class="at">P =</span> RLT_Tprior, <span class="at">alpha =</span> alpha, <span class="at">beta =</span> beta,</span>
 <span id="cb51-2"><a href="método-bayesiano-de-calcular-las-transciones.html#cb51-2" tabindex="-1"></a>                <span class="at">priorweight =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [[1]]
-##              [,1]       [,2]        [,3]
-## [1,] 0.0361824645 0.01169667 0.397783573
-## [2,] 0.5175278286 0.69906647 0.007014094
-## [3,] 0.0002472539 0.19691321 0.881340117</code></pre>
+##              [,1]        [,2]        [,3]
+## [1,] 6.279026e-02 0.007662921 0.221779218
+## [2,] 4.738681e-01 0.707353879 0.004951197
+## [3,] 1.729895e-14 0.200238003 0.814494991</code></pre>
 <p>Ahora simulamos 5000 veces, calculamos el valor <span class="math inline">\(\lambda\)</span> de cada
 matriz y creamos un histograma de la distribución.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="método-bayesiano-de-calcular-las-transciones.html#cb53-1" tabindex="-1"></a><span class="co">#set.seed(8390278) # make this part reproducible</span></span>
@@ -978,7 +981,7 @@ probabilidad de que <span class="math inline">\(\lambda &gt; 1\)</span>.</p>
 <td align="right">0.96</td>
 <td align="right">0.87</td>
 <td align="right">1.03</td>
-<td align="right">0.13</td>
+<td align="right">0.14</td>
 </tr>
 </tbody>
 </table>
