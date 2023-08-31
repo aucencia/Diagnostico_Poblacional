@@ -10,15 +10,49 @@ library(tidyverse)
 library(gt)
 library(kableExtra)
 ```
+```{r, echo=FALSE}
+library(tidyverse)
 
+rlt_theme <- theme(axis.title.y = element_text(colour="grey20",size=15,face="bold"),
+        axis.text.x = element_text(colour="grey20",size=10, face="bold"),
+        axis.text.y = element_text(colour="grey20",size=15,face="bold"),  
+        axis.title.x = element_text(colour="grey20",size=15,face="bold"))+
+  theme(
+  # Remove panel border
+  panel.border = element_blank(),  
+  # Remove panel grid lines
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  # Remove panel background
+  panel.background = element_blank(),
+  # add thicker border lines
+    axis.line.x = element_line(colour = "black", size = 1),
+    axis.line.y = element_line(colour = "black", size = 1)
+  )
+
+# The palette with grey:
+cbPalette1 <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# The palette with black:
+cbPalette2 <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# To use for fills, add
+#  scale_fill_manual(values=cbPalette)
+
+# To use for line and point colors, add
+  #scale_colour_manual(values=cbPalette)
+
+```
 
 ## Load data from **COMPADRE**
 
 ```{r}
 
-load("~/Library/CloudStorage/Dropbox/GitHub_Dropbox_Drive/GitHub/Diagnostico_Poblacional/Diagnostico_Poblacional/COMPADRE_v.6.23.5.0.RData")
+#load("~/Library/CloudStorage/Dropbox/GitHub_Dropbox_Drive/GitHub/Diagnostico_Poblacional/Diagnostico_Poblacional/COMPADRE_v.6.23.5.0.RData")
 
-ALLSp=as_cdb(compadre)  # Un baso critico: Convertir la base de datos anterior COM(P)ADRE (de clase 'list') en la base en un objeto CompadreDB.
+load("~/Dropbox/GitHub_Dropbox_Drive/GitHub/Diagnostico_Poblacional/Diagnostico_Poblacional/COMPADRE_v.6.23.5.0.RData") # work computer
+
+ALLSp=as_cdb(compadre)  # Un paso critico: Convertir la base de datos anterior COM(P)ADRE (de clase 'list') en la base en un objeto CompadreDB.
 
 names(ALLSp) # Nombre de las variables
 
@@ -35,6 +69,10 @@ index_O=ALLSp %>%
 
 ```{r}
 unique(index_O$SpeciesAccepted)
+index_O
+unique(index_O$DOI_ISBN)
+
+unique(index_O$Authors)
 ```
 
 
@@ -61,6 +99,20 @@ SPECIES_O %>% kable()
 write_csv(SPECIES_O, "Species_O.csv")
 ```
 
+
+
+# Number of populations per species study 
+
+
+
+```{r}
+as.data.frame(table(SPECIES_O$n_populations))
+
+
+```
+
+
+
 ```{r}
 
 SPECIES_O$SpeciesAccepted <- fct_reorder(SPECIES_O$SpeciesAccepted, SPECIES_O$StudyStart, .desc = FALSE)
@@ -69,12 +121,16 @@ ggplot(SPECIES_O, aes(SpeciesAccepted, color=OrganismType))+
   geom_linerange(aes(x= SpeciesAccepted  , ymin=StudyStart, ymax=StudyEnd))+
   coord_flip()+
   theme(legend.position = c(0.2, 0.8))+
+  ylab("")+
+  xlab("")+
+  rlt_theme+
   theme(axis.text.x = element_text(color = "grey20", size = 9, angle = 90, hjust = .5, vjust = .5, face = "plain"),
         axis.text.y = element_text(color = "grey20", size = 7, angle = 0, hjust = 1, vjust = 0, face = "plain"),  
         axis.title.x = element_text(color = "grey20", size = 12, angle = 0, hjust = .5, vjust = 0, face = "plain"),
-        axis.title.y = element_text(color = "grey20", size = 12, angle = 90, hjust = .5, vjust = .5, face = "plain"))+
-  ylab("")+
-  xlab("")
+        axis.title.y = element_text(color = "grey20", size = 12, angle = 90, hjust = .5, vjust = .5, face = "plain"))
+
+
+ggsave("Lenght_survey.png")
 
 ```
 
@@ -93,9 +149,14 @@ table(index_O$OrganismType)
 ggplot(index_O, aes(StudyDuration, fill=OrganismType))+
          geom_histogram(colour="white")+
   facet_wrap(~OrganismType)+
-  theme(legend.position = "none")
+  theme(legend.position = "none")+
+  xlab("Study duration")+
+  ylab("Frequency")+
+  rlt_theme
 
-ggsave("Duración_Epi_Ter.pdf")
+#ggsave("Duración_Epi_Ter.pdf")
+
+ggsave("Duración_Epi_Ter.png")
 ```
 
 
@@ -141,8 +202,14 @@ x_OT=x %>%
 Compadre_flagged <- cdb_flag(index_O)
 
 x <- subset(Compadre_flagged, check_NA_A == FALSE & check_ergodic == TRUE)
+x
+y <- subset(Compadre_flagged, check_NA_A == FALSE & check_irreducible == TRUE)
 
-lambdaVals <- sapply(matA(x), popdemo::eigs, what="lambda")
+y
+xy <- subset(Compadre_flagged, check_NA_A == FALSE & check_irreducible == TRUE & check_ergodic == TRUE)
+xy
+
+lambdaVals <- sapply(matA(xy), popdemo::eigs, what="lambda")
 summary(lambdaVals)
 hist(lambdaVals, main = "Lambda values")
 ```
@@ -152,15 +219,15 @@ hist(lambdaVals, main = "Lambda values")
 ```{r}
 
 library(purrr)
-lambdaVals1 <- map_dbl(matA(x), ~popdemo::eigs(.x, what="lambda"))
+lambdaVals1 <- map_dbl(matA(xy), ~popdemo::eigs(.x, what="lambda"))
  
  
 #Or with popbio, which avoids some warning messages…
-lambdaVals2 <- map_dbl(matA(x), ~popbio::lambda(.x))
+lambdaVals2 <- map_dbl(matA(xy), ~popbio::lambda(.x))
 ```
 
 ```{r}
-x2=x %>% 
+x2=xy %>% 
   mutate(OrganismType = case_when(
     Genus ==  "Caladenia" & OrganismType == "Epiphyte" ~ "Herbaceous perennial",
     TRUE ~ OrganismType
@@ -227,8 +294,10 @@ ALL_Lambdas=rbind(df_Lamb_epi, df_Lamb_terr)
 ```{r}
 ggplot(ALL_Lambdas, aes(lambda, fill=Habit_Type ))+
   geom_histogram(colour="white") + 
-  facet_wrap( ~Habit_Type)
-  
+  facet_wrap( ~Habit_Type)+
+  rlt_theme
+
+ggsave("Terr_Epi_lambda.png")
 ```
 
 
@@ -267,6 +336,12 @@ ggplot2::ggplot(x2, aes(Lon, Lat)) +
 ```
 
 
+## Important to include only matrices that are annual.   
+
+Unless we data wrangle the life span so it represent a year worth instead of life span.
+
+
+
 
 ```{r}
 # function to calculate life expectancy
@@ -275,7 +350,8 @@ lifeExpectancy <- function(matU, startLife) {
   return(colSums(N)[startLife])
 }
 
-compadre_life_expect <- x2 %>%
+compadre_life_expect <- x2 %>% 
+  filter(ProjectionInterval >0.999) |> 
   filter(MatrixComposite == "Mean", # filter is the dplyr version of subset
          MatrixTreatment == "Unmanipulated",
          MatrixCaptivity == "W",
@@ -296,8 +372,64 @@ ggplot2::ggplot(compadre_life_expect, aes(OrganismType, life_expectancy)) +
   geom_boxplot() +
   scale_y_log10() +
   coord_flip() +
-  labs(x = NULL, y = "Life expectancy (years)")
+  labs(x = NULL, y = "Life expectancy (years)")+
+  rlt_theme
+
+ggsave("Life_Span.png")
 ```
+
+
+Test difference in life span.
+
+
+```{r}
+unique(compadre_life_expect$OrganismType)
+
+t.test(life_expectancy~OrganismType, data=compadre_life_expect)
+
+
+shapiro.test(compadre_life_expect$life_expectancy) # Not normaly distributed
+
+
+library(car)
+
+leveneTest(life_expectancy~OrganismType, data=compadre_life_expect) # equal variance but not notmaly distributed
+
+```
+
+
+Use robust Approach
+
+
+```{r}
+library(WRS2)
+source("/Users/rlt/Dropbox/METAS+COHORT_D/Rallfun-v38.txt", chdir = T)
+#source("/Users/rlt/Dropbox/Ackermanstuff/Pollinator_Interaction/Specificity_Index_pollinators/Rallfun-v38.txt", chdir = T) ## Work laptop Computer
+#source("/Users/raymondtremblay/Dropbox/METAS+COHORT_D/Rallfun-v38.txt", chdir = T) #When used on Monique
+```
+
+
+
+```{r}
+unique(compadre_life_expect$OrganismType)
+
+Cf=cdb_flatten(compadre_life_expect)
+
+
+YSEC_T=Cf %>% 
+  dplyr::select("life_expectancy", "OrganismType") %>% 
+  filter(OrganismType== "Herbaceous perennial")
+
+YSEC_T
+YSEC_E=Cf %>% 
+  dplyr::select("life_expectancy", "OrganismType") %>% 
+  filter(OrganismType== "Epiphyte")
+
+yuenbt(YSEC_T$life_expectancy, YSEC_E$life_expectancy, alpha=.05, nboot=10000, side=T)
+
+```
+
+
 
 
 

@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 ¿Qué es el analisis de dinamica poblacional? | Dinamica_Poblacional</title>
-  <meta name="description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 ¿Qué es el analisis de dinamica poblacional? | Dinamica_Poblacional" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 ¿Qué es el analisis de dinamica poblacional? | Dinamica_Poblacional" />
   
-  <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-08" />
+<meta name="date" content="2023-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,6 +49,7 @@
 
 
 
+<link href="libs/codefolding-lua-1.1/codefolding-lua.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -88,39 +89,38 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  background-color: #f8f8f8; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <style type="text/css">
@@ -330,87 +330,91 @@ div.csl-indent {
 <li class="chapter" data-level="17.3" data-path="compadre_orchid-ppm-y-su-uso.html"><a href="compadre_orchid-ppm-y-su-uso.html#lista-de-especies-de-orquídeas-en-la-base-de-datos-de-copadre"><i class="fa fa-check"></i><b>17.3</b> Lista de especies de orquídeas en la base de datos de COPADRE</a></li>
 <li class="chapter" data-level="17.4" data-path="compadre_orchid-ppm-y-su-uso.html"><a href="compadre_orchid-ppm-y-su-uso.html#how-many-unique-studies"><i class="fa fa-check"></i><b>17.4</b> How many unique studies?</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="traduccion-del-articulo-protocolo-de-información.html"><a href="traduccion-del-articulo-protocolo-de-información.html"><i class="fa fa-check"></i><b>18</b> Traduccion del articulo Protocolo de información</a></li>
-<li class="chapter" data-level="19" data-path="dinámica-espacial-y-temporal-de-encyclia-bocourtii-después-de-15-años-en-la-península-de-guanahacabibes-cuba.html"><a href="dinámica-espacial-y-temporal-de-encyclia-bocourtii-después-de-15-años-en-la-península-de-guanahacabibes-cuba.html"><i class="fa fa-check"></i><b>19</b> Dinámica espacial y temporal de Encyclia bocourtii después de 15 años en la Península de Guanahacabibes, Cuba</a></li>
-<li class="chapter" data-level="20" data-path="nhora.html"><a href="nhora.html"><i class="fa fa-check"></i><b>20</b> Nhora</a></li>
-<li class="chapter" data-level="21" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><i class="fa fa-check"></i><b>21</b> Impactos de datos sin sentido sobre los análisis de dinámica poblacional</a>
+<li class="chapter" data-level="18" data-path="number-of-populations-per-species-study.html"><a href="number-of-populations-per-species-study.html"><i class="fa fa-check"></i><b>18</b> Number of populations per species study</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#tamaño-de-muestra-pequeño-o-eventos-raros"><i class="fa fa-check"></i><b>21.1</b> Tamaño de muestra pequeño o eventos raros</a>
-<ul>
-<li class="chapter" data-level="21.1.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#sin-mortalidadsupervivencia-perfecta"><i class="fa fa-check"></i><b>21.1.1</b> Sin Mortalidad/Supervivencia Perfecta</a></li>
-<li class="chapter" data-level="21.1.2" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#irreductibilidad-no-hay-transiciones-entre-etapas"><i class="fa fa-check"></i><b>21.1.2</b> Irreductibilidad: No hay transiciones entre etapas</a></li>
-<li class="chapter" data-level="21.1.3" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#ninguna-supervivencia"><i class="fa fa-check"></i><b>21.1.3</b> Ninguna supervivencia</a></li>
+<li class="chapter" data-level="18.1" data-path="number-of-populations-per-species-study.html"><a href="number-of-populations-per-species-study.html#important-to-include-only-matrices-that-are-annual."><i class="fa fa-check"></i><b>18.1</b> Important to include only matrices that are annual.</a></li>
 </ul></li>
-<li class="chapter" data-level="21.2" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#redondeo-excesivo-de-valores"><i class="fa fa-check"></i><b>21.2</b> Redondeo excesivo de valores</a></li>
-<li class="chapter" data-level="21.3" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#estimaciones-de-fertilidad-y-ciclo-de-vida"><i class="fa fa-check"></i><b>21.3</b> Estimaciones de fertilidad y ciclo de vida</a>
+<li class="chapter" data-level="19" data-path="traduccion-del-articulo-protocolo-de-información.html"><a href="traduccion-del-articulo-protocolo-de-información.html"><i class="fa fa-check"></i><b>19</b> Traduccion del articulo Protocolo de información</a></li>
+<li class="chapter" data-level="20" data-path="dinámica-espacial-y-temporal-de-encyclia-bocourtii-después-de-15-años-en-la-península-de-guanahacabibes-cuba.html"><a href="dinámica-espacial-y-temporal-de-encyclia-bocourtii-después-de-15-años-en-la-península-de-guanahacabibes-cuba.html"><i class="fa fa-check"></i><b>20</b> Dinámica espacial y temporal de Encyclia bocourtii después de 15 años en la Península de Guanahacabibes, Cuba</a></li>
+<li class="chapter" data-level="21" data-path="nhora.html"><a href="nhora.html"><i class="fa fa-check"></i><b>21</b> Nhora</a></li>
+<li class="chapter" data-level="22" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><i class="fa fa-check"></i><b>22</b> Impactos de datos sin sentido sobre los análisis de dinámica poblacional</a>
 <ul>
-<li class="chapter" data-level="21.3.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#ciclo-de-vida-y-etapa-de-fertilidad-incorrectos"><i class="fa fa-check"></i><b>21.3.1</b> Ciclo de vida y etapa de fertilidad incorrectos</a></li>
-</ul></li>
-<li class="chapter" data-level="21.4" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#problemas-de-análisis-de-datos"><i class="fa fa-check"></i><b>21.4</b> Problemas de análisis de datos</a>
+<li class="chapter" data-level="22.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#tamaño-de-muestra-pequeño-o-eventos-raros"><i class="fa fa-check"></i><b>22.1</b> Tamaño de muestra pequeño o eventos raros</a>
 <ul>
-<li class="chapter" data-level="21.4.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#estimaciones-de-intervalos-de-confianza-incorrectas"><i class="fa fa-check"></i><b>21.4.1</b> Estimaciones de intervalos de confianza incorrectas</a></li>
+<li class="chapter" data-level="22.1.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#sin-mortalidadsupervivencia-perfecta"><i class="fa fa-check"></i><b>22.1.1</b> Sin Mortalidad/Supervivencia Perfecta</a></li>
+<li class="chapter" data-level="22.1.2" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#irreductibilidad-no-hay-transiciones-entre-etapas"><i class="fa fa-check"></i><b>22.1.2</b> Irreductibilidad: No hay transiciones entre etapas</a></li>
+<li class="chapter" data-level="22.1.3" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#ninguna-supervivencia"><i class="fa fa-check"></i><b>22.1.3</b> Ninguna supervivencia</a></li>
 </ul></li>
-<li class="chapter" data-level="21.5" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#distribución-dirichlet-de-intervalo-de-confianza"><i class="fa fa-check"></i><b>21.5</b> Distribución Dirichlet de intervalo de confianza</a></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="diferentes_componentes_de_ciclo_de_vida.html"><a href="diferentes_componentes_de_ciclo_de_vida.html"><i class="fa fa-check"></i><b>22</b> Diferentes_componentes_de_Ciclo_de_vida</a>
+<li class="chapter" data-level="22.2" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#redondeo-excesivo-de-valores"><i class="fa fa-check"></i><b>22.2</b> Redondeo excesivo de valores</a></li>
+<li class="chapter" data-level="22.3" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#estimaciones-de-fertilidad-y-ciclo-de-vida"><i class="fa fa-check"></i><b>22.3</b> Estimaciones de fertilidad y ciclo de vida</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="diferentes_componentes_de_ciclo_de_vida.html"><a href="diferentes_componentes_de_ciclo_de_vida.html#por-anne-fabiola-aucencia-ecosur"><i class="fa fa-check"></i><b>22.1</b> Por: Anne, Fabiola, Aucencia: ECOSUR</a></li>
-<li class="chapter" data-level="22.2" data-path="diferentes_componentes_de_ciclo_de_vida.html"><a href="diferentes_componentes_de_ciclo_de_vida.html#el-capitulo-sera-movido-a-otra-posicion-en-el-libro"><i class="fa fa-check"></i><b>22.2</b> El capitulo sera movido a otra posicion en el libro</a></li>
+<li class="chapter" data-level="22.3.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#ciclo-de-vida-y-etapa-de-fertilidad-incorrectos"><i class="fa fa-check"></i><b>22.3.1</b> Ciclo de vida y etapa de fertilidad incorrectos</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="hojas-de-datos-en-el-campo.html"><a href="hojas-de-datos-en-el-campo.html"><i class="fa fa-check"></i><b>23</b> Hojas de datos en el campo</a></li>
-<li class="chapter" data-level="24" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>24</b> Nombre del capitulo.</a>
+<li class="chapter" data-level="22.4" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#problemas-de-análisis-de-datos"><i class="fa fa-check"></i><b>22.4</b> Problemas de análisis de datos</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="intro.html"><a href="intro.html#a-section"><i class="fa fa-check"></i><b>24.1</b> A section</a></li>
-<li class="chapter" data-level="24.2" data-path="intro.html"><a href="intro.html#otra-seccion"><i class="fa fa-check"></i><b>24.2</b> Otra seccion</a>
+<li class="chapter" data-level="22.4.1" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#estimaciones-de-intervalos-de-confianza-incorrectas"><i class="fa fa-check"></i><b>22.4.1</b> Estimaciones de intervalos de confianza incorrectas</a></li>
+</ul></li>
+<li class="chapter" data-level="22.5" data-path="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html"><a href="impactos-de-datos-sin-sentido-sobre-los-análisis-de-dinámica-poblacional.html#distribución-dirichlet-de-intervalo-de-confianza"><i class="fa fa-check"></i><b>22.5</b> Distribución Dirichlet de intervalo de confianza</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="diferentes_componentes_de_ciclo_de_vida.html"><a href="diferentes_componentes_de_ciclo_de_vida.html"><i class="fa fa-check"></i><b>23</b> Diferentes_componentes_de_Ciclo_de_vida</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="diferentes_componentes_de_ciclo_de_vida.html"><a href="diferentes_componentes_de_ciclo_de_vida.html#por-anne-fabiola-aucencia-ecosur"><i class="fa fa-check"></i><b>23.1</b> Por: Anne, Fabiola, Aucencia: ECOSUR</a></li>
+<li class="chapter" data-level="23.2" data-path="diferentes_componentes_de_ciclo_de_vida.html"><a href="diferentes_componentes_de_ciclo_de_vida.html#el-capitulo-sera-movido-a-otra-posicion-en-el-libro"><i class="fa fa-check"></i><b>23.2</b> El capitulo sera movido a otra posicion en el libro</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="hojas-de-datos-en-el-campo.html"><a href="hojas-de-datos-en-el-campo.html"><i class="fa fa-check"></i><b>24</b> Hojas de datos en el campo</a></li>
+<li class="chapter" data-level="25" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>25</b> Nombre del capitulo.</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="intro.html"><a href="intro.html#a-section"><i class="fa fa-check"></i><b>25.1</b> A section</a></li>
+<li class="chapter" data-level="25.2" data-path="intro.html"><a href="intro.html#otra-seccion"><i class="fa fa-check"></i><b>25.2</b> Otra seccion</a>
 <ul>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#a-subsection"><i class="fa fa-check"></i>A subsection</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="intro.html"><a href="intro.html#note-the-size-of-font-changes-with-the-number"><i class="fa fa-check"></i><b>24.3</b> NOTE the size of font changes with the number <em>#</em></a>
+<li class="chapter" data-level="25.3" data-path="intro.html"><a href="intro.html#note-the-size-of-font-changes-with-the-number"><i class="fa fa-check"></i><b>25.3</b> NOTE the size of font changes with the number <em>#</em></a>
 <ul>
-<li class="chapter" data-level="24.3.1" data-path="intro.html"><a href="intro.html#note-the-size-of-font-changes-with-the-number-1"><i class="fa fa-check"></i><b>24.3.1</b> NOTE the size of font changes with the number <em>#</em></a></li>
+<li class="chapter" data-level="25.3.1" data-path="intro.html"><a href="intro.html#note-the-size-of-font-changes-with-the-number-1"><i class="fa fa-check"></i><b>25.3.1</b> NOTE the size of font changes with the number <em>#</em></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>25</b> Cross-references</a>
+<li class="chapter" data-level="26" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>26</b> Cross-references</a>
 <ul>
-<li class="chapter" data-level="25.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>25.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="25.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>25.2</b> Captioned figures and tables</a></li>
+<li class="chapter" data-level="26.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>26.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="26.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>26.2</b> Captioned figures and tables</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-list-of-epiphyitc-species.html"><a href="appendix-list-of-epiphyitc-species.html"><i class="fa fa-check"></i>(Appendix) List of epiphyitc species</a></li>
 <li class="chapter" data-level="" data-path="appendix-list-of-terrestrial-species.html"><a href="appendix-list-of-terrestrial-species.html"><i class="fa fa-check"></i>(Appendix) List of terrestrial species</a></li>
-<li class="chapter" data-level="26" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>26</b> Footnotes and citations</a>
+<li class="chapter" data-level="27" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>27</b> Footnotes and citations</a>
 <ul>
-<li class="chapter" data-level="26.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>26.1</b> Footnotes</a></li>
-<li class="chapter" data-level="26.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>26.2</b> Citations</a></li>
-<li class="chapter" data-level="26.3" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#links-to-websites"><i class="fa fa-check"></i><b>26.3</b> Links to websites</a></li>
+<li class="chapter" data-level="27.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>27.1</b> Footnotes</a></li>
+<li class="chapter" data-level="27.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>27.2</b> Citations</a></li>
+<li class="chapter" data-level="27.3" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#links-to-websites"><i class="fa fa-check"></i><b>27.3</b> Links to websites</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>27</b> Blocks</a>
+<li class="chapter" data-level="28" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>28</b> Blocks</a>
 <ul>
-<li class="chapter" data-level="27.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>27.1</b> Equations</a></li>
-<li class="chapter" data-level="27.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>27.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="27.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>27.3</b> Callout blocks</a></li>
+<li class="chapter" data-level="28.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>28.1</b> Equations</a></li>
+<li class="chapter" data-level="28.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>28.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="28.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>28.3</b> Callout blocks</a></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>28</b> Sharing your book</a>
+<li class="chapter" data-level="29" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>29</b> Sharing your book</a>
 <ul>
-<li class="chapter" data-level="28.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>28.1</b> Publishing</a></li>
-<li class="chapter" data-level="28.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>28.2</b> 404 pages</a></li>
-<li class="chapter" data-level="28.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>28.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="29.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>29.1</b> Publishing</a></li>
+<li class="chapter" data-level="29.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>29.2</b> 404 pages</a></li>
+<li class="chapter" data-level="29.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>29.3</b> Metadata for sharing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="29" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html"><i class="fa fa-check"></i><b>29</b> Taller de Dinamica Poblacional</a>
+<li class="chapter" data-level="30" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html"><i class="fa fa-check"></i><b>30</b> Taller de Dinamica Poblacional</a>
 <ul>
-<li class="chapter" data-level="29.1" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#esta-sección-tiene-objetivo-de-presentar-una-sinopsis-de-un-taller-de-3-dias-sobre-el-uso-de-matrices-para-el-estudio-de-dinámica-poblacional."><i class="fa fa-check"></i><b>29.1</b> Esta sección tiene objetivo de presentar una sinopsis de un taller de 3 dias sobre el uso de matrices para el estudio de Dinámica poblacional.</a></li>
-<li class="chapter" data-level="29.2" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#impartido-por"><i class="fa fa-check"></i><b>29.2</b> <em>Impartido por</em>:</a></li>
-<li class="chapter" data-level="29.3" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#duración-del-taller"><i class="fa fa-check"></i><b>29.3</b> Duración del taller:</a></li>
-<li class="chapter" data-level="29.4" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#certificación-a-nombre-de-la"><i class="fa fa-check"></i><b>29.4</b> Certificación A nombre de la</a></li>
-<li class="chapter" data-level="29.5" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#costo-del-taller-estudiantes"><i class="fa fa-check"></i><b>29.5</b> Costo del taller Estudiantes:</a></li>
-<li class="chapter" data-level="29.6" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#cupo-25-personas"><i class="fa fa-check"></i><b>29.6</b> Cupo: 25 personas</a></li>
-<li class="chapter" data-level="29.7" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#introducción"><i class="fa fa-check"></i><b>29.7</b> Introducción</a></li>
-<li class="chapter" data-level="29.8" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#objetivo-general"><i class="fa fa-check"></i><b>29.8</b> Objetivo general:</a></li>
-<li class="chapter" data-level="29.9" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#objetivos-específicos"><i class="fa fa-check"></i><b>29.9</b> Objetivos específicos:</a></li>
-<li class="chapter" data-level="29.10" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#introducción-1"><i class="fa fa-check"></i><b>29.10</b> Introducción</a></li>
-<li class="chapter" data-level="29.11" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#materiales-necesarios"><i class="fa fa-check"></i><b>29.11</b> Materiales necesarios:</a></li>
-<li class="chapter" data-level="29.12" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#bibliografía"><i class="fa fa-check"></i><b>29.12</b> Bibliografía</a></li>
+<li class="chapter" data-level="30.1" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#esta-sección-tiene-objetivo-de-presentar-una-sinopsis-de-un-taller-de-3-dias-sobre-el-uso-de-matrices-para-el-estudio-de-dinámica-poblacional."><i class="fa fa-check"></i><b>30.1</b> Esta sección tiene objetivo de presentar una sinopsis de un taller de 3 dias sobre el uso de matrices para el estudio de Dinámica poblacional.</a></li>
+<li class="chapter" data-level="30.2" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#impartido-por"><i class="fa fa-check"></i><b>30.2</b> <em>Impartido por</em>:</a></li>
+<li class="chapter" data-level="30.3" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#duración-del-taller"><i class="fa fa-check"></i><b>30.3</b> Duración del taller:</a></li>
+<li class="chapter" data-level="30.4" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#certificación-a-nombre-de-la"><i class="fa fa-check"></i><b>30.4</b> Certificación A nombre de la</a></li>
+<li class="chapter" data-level="30.5" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#costo-del-taller-estudiantes"><i class="fa fa-check"></i><b>30.5</b> Costo del taller Estudiantes:</a></li>
+<li class="chapter" data-level="30.6" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#cupo-25-personas"><i class="fa fa-check"></i><b>30.6</b> Cupo: 25 personas</a></li>
+<li class="chapter" data-level="30.7" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#introducción"><i class="fa fa-check"></i><b>30.7</b> Introducción</a></li>
+<li class="chapter" data-level="30.8" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#objetivo-general"><i class="fa fa-check"></i><b>30.8</b> Objetivo general:</a></li>
+<li class="chapter" data-level="30.9" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#objetivos-específicos"><i class="fa fa-check"></i><b>30.9</b> Objetivos específicos:</a></li>
+<li class="chapter" data-level="30.10" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#introducción-1"><i class="fa fa-check"></i><b>30.10</b> Introducción</a></li>
+<li class="chapter" data-level="30.11" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#materiales-necesarios"><i class="fa fa-check"></i><b>30.11</b> Materiales necesarios:</a></li>
+<li class="chapter" data-level="30.12" data-path="taller-de-dinamica-poblacional.html"><a href="taller-de-dinamica-poblacional.html#bibliografía"><i class="fa fa-check"></i><b>30.12</b> Bibliografía</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -439,20 +443,22 @@ div.csl-indent {
 <p>El objetivo de la conservación biológica es asegurar que las especies pueden sobrevivir, reproducirse y dejar progenie viable para de una generación a otra. Por consecuencia se necesita que las variables intrinsicas y extrinsicas, bioticas y abioticas de cada especies estén considerado con todas sus interacciones. Naturalmente aunque el concepto es sencillo, tomar en cuanta TODAS las posibles interacciones biológicas y abióticas es imposible.<br />
 El primer paso a la conservación es considerar el ambiente adecuado para cada especie. Sin duda en los ultimos 50 años en muchos paises ha habido un cambio grande en el repesto y la conservaciones de bosque, pradera, desierto y todos los biomas en general. Por ejemplo el cambio de cobertura de bosque en Puerto Rico ha aumentado de circa de 2-5% en los años 1910 a más 40% en el 2000 <span class="citation">(<a href="#ref-pares2008agricultural">Parés-Ramos, Gould, and Aide 2008</a>)</span>. En general en Latino América ha habido más reforestación de deforestación <span class="citation">(<a href="#ref-aide2013deforestation">Aide et al. 2013</a>)</span> en los ultimos años, aunque varia mucho entre paises y periodo de tiempo. Para la conservación el primer paso era reconocer que los habitat necesitan ser protegido.<br />
 Muchos de estos nuevos hábitat son bosque segundarios, fragmentados y dominado por especies introducidas. Estos habitat por consecuencia son mayormente diferentes al ambiente natural antes de los cambios antropogénicos. El resultado, en muchas ocasiones, es que la especies de interes están reducida en números de individuos o fragmentados. Considerando esos remanentes de individuos en el habitat, son suficiente para mantener una población viable? ¿Como que uno decide que una población es viable?</p>
-<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa “dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extincción.</p>
+<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de individuos en un sitio que este protegido o que haya muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa latencia/“dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extinción.</p>
 <div id="qué-es-el-estudio-de-la-dinamica-poblacional" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> ¿Qué es el estudio de la dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-estudio-de-la-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interaciones con sus ambiente biotico y abiotico. La dinamica de población es fundamental en todas las areas de la ecología y evolución. Comprender la dinamica poblacional es la clave para entender la importancia relativa al aceso de los recursos y el efecto de competencia, herbivoria y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
+<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interacciones con sus ambiente biótico y abiótico. La dinámica de población es fundamental en todas las áreas de la ecología y evolución. Comprender la dinámica poblacional es la clave para entender la importancia relativa al acceso de los recursos y el efecto de competencia, herbivoría y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
 </div>
 <div id="definición" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Definición<a href="qué-es-el-analisis-de-dinamica-poblacional.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Una definición más especifica de los estudios de dinámica poblacional son definidos como los análisis de los factores que afecten el crecimiento, estabilidad y reducción en el tamaño de la población en una serie de tiempo.</p>
 <p>Por ejemplo, la dinamica poblacional de especies invasivas incluye un periodo de crecimiento muy lento al comienzo de la colonización de un nuevo sitio y frecuentamente siguido de un crecimiento logarithmico. La figura <a href="qué-es-el-analisis-de-dinamica-poblacional.html#fig:Pop-fig">2.1</a>. demuestra el cambio de número de individuos en el tiempo de una especie hipotética.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb1-1" tabindex="-1"></a><span class="fu">ggplot</span>(pressure, <span class="fu">aes</span>(temperature, pressure))<span class="sc">+</span></span>
 <span id="cb1-2"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb1-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb1-3"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb1-3" tabindex="-1"></a>  rlt_theme<span class="sc">+</span></span>
 <span id="cb1-4"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb1-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Tiempo&quot;</span>)<span class="sc">+</span></span>
 <span id="cb1-5"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb1-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Tamaño poblacional&quot;</span>)</span></code></pre></div>
+</details>
 <div class="figure"><span style="display:block;" id="fig:Pop-fig"></span>
 <img src="Diagnostico_Poblacional_files/figure-html/Pop-fig-1.png" alt="Cambio poblacional en tiempo" width="672" />
 <p class="caption">
@@ -547,17 +553,17 @@ Figure 2.1: Cambio poblacional en tiempo
 </div>
 <div id="uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> USO 1: Identificar las etapas or procesos demográficos claves<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bioticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostrarón que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que econtrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos de las redes de pesca, modificando estas para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
+<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bióticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostraron que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que encontrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos era reducir la mortandad de los adultos espceificamente de las redes de pesca, modificando estas redes para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
 <p>Ejemplo de orquidea AQUI</p>
 </div>
 <div id="uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="section level3 hasAnchor" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> USO 2: Determinar cuantos individuos en una población es necesario para reducir la extinción<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extincción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probablidad de extincción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extincción. Esa probabilidad de extincción puede variar si algunas etapas del ciclo de vida tiene es muy reducido o su probabilidad de sobrevivir o crecer varia. Consideramos por ejemplo en las orquídeas donde la probabilidad de que las semillas se establece, germina y crezca a a ser un juvenil es muy pequeña. Por consecuencia una nueva población de orquidea necesita considerar la cantidad de individuos que este presente pero tambien la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible.</p>
+<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extinción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probabilidad de extinción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extinción. Esa probabilidad de extinción puede variar si algunas etapas del ciclo de vida es muy reducido o su probabilidad de sobrevivir es baja o crecer a la proxima etapa varia. En orquideas es probable que uno de las etapas más vulnerable es la etapa de semilla. Consideramos por ejemplo cual es la probabilidad de que las semillas se establece, germina y crezca a ser un juvenil. Esas transiciones es muy pequeña. Por consecuencia una nueva población de orquídea necesita considerar la cantidad de individuos que este presente pero también la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible. Darwin (ref) estimo por ejemplo que un fruto de <em>Orchis maculata</em> produce 6,200 semillas y una planta tipica 186,300 y en un acre la suma de las plantas produce más de 32,400,000,000 semillas!!!! Sin duda la probabilidad de que una semilla germina y produce una planta es muy pequeña sino estaríamos cubierto de orquídea en dos generaciones.</p>
 </div>
 <div id="uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="section level3 hasAnchor" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> USO 3: Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el minimo de individuos que se deberia introductir para garantizar un x porciento de suceso en el establecimiento de una nueva población.</p>
-<p>En los ultimos años, muchas organizaciones y cientificos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en areas urbanas.</p>
+<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el mínimo de individuos que se debería introductir para garantizar un <strong>x</strong> porciento de suceso en el establecimiento de una nueva población.</p>
+<p>En los ultimos años, muchas organizaciones y científicos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en áreas urbanas.</p>
 <ul>
 <li>Caladenia</li>
 <li>Korea</li>
